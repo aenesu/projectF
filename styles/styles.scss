@@ -1,0 +1,36 @@
+@import "variables";
+
+
+// SWEETALERT2
+@import "sweetalert2/src/variables";
+@import "sweetalert2/src/sweetalert2";
+
+
+// SWEETALERT2
+.swal2-confirm {
+    background-color: $clr-success-light !important;
+    color: $clr-purple !important;
+    font-weight: 700 !important;
+    width: 100px !important;
+    border: 3px solid $clr-white !important;
+}
+
+.swal2-cancel {
+    background-color: $clr-danger-light !important;
+    color: $clr-purple !important;
+    font-weight: 700 !important;
+    width: 100px !important;
+    border: 3px solid $clr-white !important;
+}
+
+.swal2-popup {
+    background-color: $clr-purple-light !important;
+    color: $clr-purple !important;
+    border: 3px solid $clr-white !important;
+}
+
+.swal2-question {
+    background-color: $clr-purple-light !important;
+    color: $clr-purple !important;
+    border: 3px solid $clr-white !important;
+}
