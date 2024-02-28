@@ -1,0 +1,42 @@
+@use "@/styles/variables" as *;
+
+.submitButton {
+    padding: $padding-md;
+    border-radius: $rounded-sm;
+    border: none;
+    background-color: $clr-purple;
+    color: $clr-white;
+    font-size: $font-md;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-lg;
+    width: 100%;
+    transition: background-color 0.5s;
+
+    &:hover {
+        background-color: $clr-purple-dark;
+    }
+
+    &:focus {
+        outline: $clr-purple-light auto 1px;
+    }
+}
+
+.submitting {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: $screen-3xl) {
+    .submitButton {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-md) {
+    .submitButton {
+        padding: $padding-sm;
+    }
+}

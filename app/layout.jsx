@@ -2,10 +2,12 @@ import { Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import "@/styles/styles.scss";
+
 const roboto = Roboto({
     subsets: ["latin"],
     weight: ["100", "300", "400", "500", "700", "900"],
 });
+
 const modulus = localFont({
     src: [
         {
@@ -25,6 +27,7 @@ const modulus = localFont({
         },
     ],
 });
+
 export const metadata = {
     title: {
         default: "Edvance | Revolutionary Student Management Platform",
@@ -79,6 +82,7 @@ export const metadata = {
             },
         ],
     },
+    metadataBase: new URL("https://www.edvance.com"),
 };
 export default function RootLayout({ children }) {
     return (

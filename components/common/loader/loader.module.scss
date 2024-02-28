@@ -1,0 +1,28 @@
+@use "@/styles/variables" as *;
+
+.spinner {
+    width: $font-md;
+    height: $font-md;
+    position: relative;
+    animation: $animation-spin;
+
+    &::after,
+    &::before {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        width: $font-sm;
+        height: $font-sm;
+        top: 50%;
+        left: 50%;
+        background-color: $clr-success-light;
+        transform: translate(-50%, -50%);
+        animation: $animation-orbit-up;
+        border-radius: $rounded-full;
+    }
+
+    &::after {
+        background-color: $clr-danger-light;
+        animation: $animation-orbit-down;
+    }
+}

@@ -1,0 +1,30 @@
+@use "@/styles/variables" as *;
+
+.container {
+    font-family: $font-modulus;
+    background-color: $clr-danger-light;
+    font-size: $font-md;
+    padding: $padding-md;
+    border-radius: $rounded-sm;
+}
+
+.text {
+    color: $clr-danger;
+}
+
+@media (max-width: $screen-2xl) {
+    .container {
+        padding: $padding-sm;
+    }
+
+    .text {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .text {
+        font-size: $font-xs;
+    }
+}
+

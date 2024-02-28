@@ -1,0 +1,62 @@
+@use "@/styles/variables" as *;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+    margin-bottom: $margin-xs;
+}
+
+.label {
+    font-size: $font-md;
+    margin-bottom: $margin-xs;
+    color: $clr-purple-darker;
+}
+
+.input {
+    padding: $padding-md;
+    border-radius: $rounded-sm;
+    border: none;
+    background-color: $clr-purple-lighter;
+    color: $clr-purple;
+    font-size: $font-md;
+
+    &:focus-visible {
+        outline: $clr-purple auto 1px;
+    }
+
+    &::placeholder {
+        color: $clr-purple-medium;
+    }
+}
+
+.error {
+    color: $clr-danger;
+    font-size: $font-xs;
+    margin-top: $margin-xs;
+}
+
+@media (max-width: $screen-3xl) {
+    .form {
+        gap: $gap-sm;
+    }
+
+    .inputGroup {
+        gap: $gap-sm;
+    }
+
+    .label {
+        font-size: $font-sm;
+    }
+
+    .input {
+        padding: $padding-sm;
+        font-size: $font-sm;
+    }
+}
