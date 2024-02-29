@@ -11,6 +11,8 @@ export const config = {
             },
             async authorize(credentials) {
                 console.log("credentials", credentials);
+            
+                //Login logic goes here
             },
         }),
     ],
