@@ -1,1 +1,3 @@
-export const loginFormaction = async () => {}
+"use server";
+
+export const loginFormAction = async () => {}

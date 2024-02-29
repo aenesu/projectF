@@ -1,42 +1,55 @@
-"use client"
+"use client";
 
 import SubmitButton from "@/components/common/submit-button/submit-button";
-import styles from "./login-page.module.scss"; 
+import styles from "./login-page.module.scss";
 import ErrorText from "@/components/common/error-text/error-text";
-
-
+import { useFormState } from "react-dom";
+import { loginFormAction } from "@/actions/auth/login-form-action";
 
 export default function LoginPage() {
-
-  const error = true;
+  const [state, dispatch] = useFormState(loginFormAction, {
+    message: null,
+    errors: {},
+  });
 
   return (
-    <form className={styles.form}>
+    <form action={dispatch} className={styles.form}>
       <div className={styles.inputGroup}>
-        <label className={styles.label} htmlFor="username">Username</label>
-        <input 
+        <label htmlFor="username" className={styles.label}>
+          Username
+        </label>
+        <input
           autoComplete="username"
           className={styles.input}
           id="username"
-          placeholder="Enter your username"
+          name="username"
+          placeholder="Enter your username..."
           type="text"
         />
-        {error && <p className={styles.error}>Username is required</p>}
+        {state?.errors?.username && (
+          <p className={styles.error}>state?.errors?.username</p>
+        )}
       </div>
-      
       <div className={styles.inputGroup}>
-        <label className={styles.label} htmlFor="password">Username</label>
-        <input 
+        <label htmlFor="password" className={styles.label}>
+          Password
+        </label>
+        <input
           autoComplete="current-password"
           className={styles.input}
           id="password"
+          name="password"
           placeholder="•••••••••"
           type="text"
         />
-        {error && <p className={styles.error}>Password is required</p>}
+        {state?.errors?.password && (
+          <p className={styles.error}>{state?.errors?.password}</p>
+        )}
       </div>
-      {error && <ErrorText text="Invalid credentials!" />}
+      {state?.errors?.commonError && (
+        <ErrorText text={state?.errors?.commonError} />
+      )}
       <SubmitButton title="Sign In" loadingText="Signing In" />
     </form>
-  )
+  );
 }
