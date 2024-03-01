@@ -1,6 +1,10 @@
 import Credentials from "next-auth/providers/credentials";
 import { loginSchema } from "@/utils/validations/loginSchema";
 import { login } from "@/actions/auth/login";
+import { apiPrefix, publicRoutes } from "@/routes";
+import { isTokenValid } from "@/utils/functions/is-token-valid";
+import { getUser } from "@/actions/user/get-user";
+import { isUserAuthorized } from "@/utils/functions/is-user-authorized";
 
 export const config = {
     providers: [
@@ -26,8 +30,7 @@ export const config = {
 
                 const payload = {
                     user: userInformation,
-                    // ["Bearer", "gjkbhfdskgjhkjehkfjhekwruf"]
-                    accessToken: user.token.split[" "][1],
+                    accessToken: user?.token?.split(" ")[1],
                 };
                 console.log(payload);
                 return payload;
@@ -36,15 +39,45 @@ export const config = {
     ],
     callbacks: {
         authorized({ auth, request: { nextUrl } }) {
-            console.log(auth);
             const isLoggedIn = !!auth?.user;
+            const isApiAuthRoute = nextUrl.pathname.startsWith(apiPrefix);
+            const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+            const isValidToken = isTokenValid(auth?.accessToken);
+            const isOnProtectedRoute =
+                nextUrl.pathname.startsWith("/dashboard");
+            const isOnLoginRoute = nextUrl.pathname.startsWith("/login");
 
-            if (!isLoggedIn) return false;
+            if (isApiAuthRoute) return true;
+
+            if (!isLoggedIn || !isValidToken) return false;
+
+            if (isPublicRoute || isOnLoginRoute) {
+                return Response.redirect(new URL("/dashboard", nextUrl));
+            } else if (isOnProtectedRoute) {
+                const canAccess = isUserAuthorized(
+                    auth?.user?.role,
+                    nextUrl.pathname
+                );
+
+                if (!canAccess)
+                    return Response.redirect(new URL("/unauthorized", nextUrl));
+
+                return true;
+            }
 
             return true;
         },
-        async jwt() {},
-        async session() {},
+        // this callback is called for every route needs JWT
+        async jwt({ token, user }) {
+            return { ...token, ...user };
+        },
+        async session({ session, token }) {
+            if (!isTokenValid(token.accessToken)) return null;
+
+            session.accessToken = token.accessToken;
+            session.user = token.user;
+            return session;
+        },
     },
     pages: {
         signIn: "/login",

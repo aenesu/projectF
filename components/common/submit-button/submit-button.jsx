@@ -1,7 +1,7 @@
 import { useFormStatus } from "react-dom";
-import styles from "./submit-button.module.scss";
 import Loader from "@/components/common/loader/loader";
 import ThreeDots from "@/components/common/three-dots/three-dots";
+import styles from "./submit-button.module.scss";
 
 export default function SubmitButton({ title, loadingText }) {
     const status = useFormStatus();

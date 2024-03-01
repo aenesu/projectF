@@ -12,7 +12,7 @@
     color: $clr-danger;
 }
 
-@media (max-width: $screen-2xl) {
+@media (max-width: $screen-3xl) {
     .container {
         padding: $padding-sm;
     }
@@ -27,4 +27,3 @@
         font-size: $font-xs;
     }
 }
-
