@@ -1,0 +1,172 @@
+@use "@/styles/variables" as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    background-color: $clr-success-dark;
+    overflow: hidden;
+}
+
+.contentContainer {
+    font-family: $font-modulus;
+    color: $clr-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $padding-lg;
+    gap: $gap-lg;
+}
+
+.title {
+    font-size: $font-4xl;
+    font-weight: $text-normal;
+    position: relative;
+    text-align: center;
+    z-index: 3;
+    padding: 0 $padding-3xl;
+    margin-top: calc($margin-3xl * 3);
+}
+
+.description {
+    font-size: $font-lg;
+    font-weight: $text-light;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    font-style: italic;
+    padding: 0 $padding-3xl;
+    margin-bottom: $margin-lg;
+}
+
+.image {
+    margin-top: auto;
+    max-width: 100%;
+    height: auto;
+    z-index: 4;
+}
+
+.blob {
+    position: absolute;
+    z-index: 2;
+    background-color: $clr-purple-light;
+    border-radius: 30%;
+    animation: $animation-wiggle;
+    opacity: 0.2;
+
+    &:nth-child(1) {
+        width: 50%;
+        height: 30%;
+        top: -10%;
+        left: -10%;
+    }
+
+    &:nth-child(2) {
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 50%;
+        animation: $animation-wiggle2;
+    }
+
+    &:nth-child(3) {
+        width: 90%;
+        height: 90%;
+        top: 50%;
+        right: -30%;
+        animation: $animation-wiggle2;
+    }
+
+    &:nth-child(4) {
+        width: 60%;
+        height: 60%;
+        top: -20%;
+        right: -20%;
+        animation: $animation-wiggle3;
+    }
+
+    &:nth-child(5) {
+        width: 40%;
+        height: 40%;
+        bottom: -20%;
+        left: -20%;
+    }
+
+    &:nth-child(6) {
+        width: 20%;
+        height: 20%;
+        bottom: -10%;
+        right: 50%;
+        animation: $animation-wiggle2;
+    }
+
+    &:nth-child(7) {
+        width: 20%;
+        height: 20%;
+        bottom: 50%;
+        right: 50%;
+    }
+
+    &:nth-child(8) {
+        width: 35%;
+        height: 35%;
+        bottom: 30%;
+        left: 10%;
+        animation: $animation-wiggle3;
+    }
+}
+
+@media (max-width: 1920px) {
+    .image {
+        width: 800px;
+    }
+}
+
+@media (max-width: $screen-3xl) {
+    .title {
+        font-size: $font-3xl;
+    }
+
+    .description {
+        font-size: $font-sm;
+    }
+
+    .image {
+        width: 700px;
+    }
+}
+
+@media (max-width: $screen-2xl) {
+    .image {
+        width: 500px;
+    }
+}
+
+@media (max-width: $screen-xl) {
+    .title {
+        font-size: $font-2xl;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .contentContainer {
+        padding: $padding-md;
+        gap: $gap-xs;
+    }
+
+    .content {
+        padding: $padding-lg;
+    }
+
+    .title {
+        padding: $padding-sm $padding-2xl;
+        margin-top: $margin-3xl;
+    }
+
+    .description {
+        padding: $padding-sm $padding-2xl;
+        font-size: $font-xs;
+    }
+}
