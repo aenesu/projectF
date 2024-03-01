@@ -14,6 +14,7 @@
     gap: $gap-lg;
     width: 100%;
     transition: background-color 0.5s;
+    font-family: $font-modulus;
 
     &:hover {
         background-color: $clr-purple-dark;

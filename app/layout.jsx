@@ -6,6 +6,9 @@ import "@/styles/styles.scss";
 const roboto = Roboto({
     subsets: ["latin"],
     weight: ["100", "300", "400", "500", "700", "900"],
+    style: ["normal", "italic"],
+    display: "swap",
+    variable: "--font-roboto",
 });
 
 const modulus = localFont({
@@ -26,6 +29,7 @@ const modulus = localFont({
             style: "normal",
         },
     ],
+    variable: "--font-modulus",
 });
 
 export const metadata = {
@@ -38,11 +42,11 @@ export const metadata = {
     publisher: "TechPro Education",
     authors: [
         {
-            name: "aenesu",
-            url: "https://github.com/aenesu",
+            name: "Halil ALGUL",
+            url: "https://github.com/halibal",
         },
     ],
-    creator: "aenesu",
+    creator: "Halil ALGUL",
     applicationName: "Edvance",
     generator: "Next.js",
     icons: {
@@ -70,7 +74,7 @@ export const metadata = {
     },
     twitter: {
         site: "@Edvance",
-        creator: "@aenesu",
+        creator: "@halibal",
         card: "summary_large_image",
         description: "Edvance | Revolutionary Student Management Platform",
         images: [
@@ -84,14 +88,11 @@ export const metadata = {
     },
     metadataBase: new URL("https://www.edvance.com"),
 };
+
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
-            <body
-                className={`${roboto.className} ${modulus.className}`}
-                style={{ height: "100% !important" }}>
-                {children}
-            </body>
+        <html lang="en" className={`${roboto.variable} ${modulus.variable}`}>
+            <body style={{ height: "100% !important" }}>{children}</body>
         </html>
     );
 }

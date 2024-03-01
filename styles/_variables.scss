@@ -44,7 +44,8 @@ $screen-2xl: 1400px;
 $screen-3xl: 1600px;
 
 // FONTS
-$font-modulus: "Modulus", sans-serif;
+$font-modulus: var(--font-modulus);
+$font-roboto: var(--font-roboto);
 
 // BORDER RADIUS
 $rounded-2xs: 2px;
