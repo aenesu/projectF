@@ -1,0 +1,66 @@
+@use "@/styles/variables" as *;
+
+.linkItems {
+    display: flex;
+    align-items: center;
+    color: $clr-white;
+    text-decoration: none;
+    gap: $gap-sm;
+    padding: $padding-lg $padding-2xl;
+    transition: all 0.3s ease-in-out;
+    font-size: $font-md;
+
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:hover {
+        background-color: $clr-purple-light;
+        color: $clr-purple;
+    }
+}
+
+.activeLink {
+    font-weight: bold;
+    background-color: $clr-purple-light;
+    color: $clr-purple;
+}
+
+@media screen and (max-width: $screen-3xl) {
+    .linkItems {
+        font-size: $font-sm;
+        padding: $padding-md $padding-md;
+    }
+}
+
+@media screen and (max-width: $screen-lg) {
+    .linkItems {
+        font-size: $font-xs;
+        display: flex;
+        justify-content: center;
+
+        span {
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $screen-sm) {
+    .linkItems {
+        padding: $padding-sm;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            &:first-child {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}

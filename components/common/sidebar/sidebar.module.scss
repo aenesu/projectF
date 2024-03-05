@@ -1,0 +1,130 @@
+@use "@/styles/variables" as *;
+
+.container {
+    background: $lineer-gradient-dark;
+    display: flex;
+    flex-direction: column;
+    border-radius: $rounded-xl;
+    min-height: 100%;
+}
+
+.avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: $margin-md;
+    padding: $padding-3xl;
+}
+
+.avatarInnerContainer {
+    padding: $padding-3xl;
+    border-radius: $rounded-xl;
+    background-color: $clr-purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.linksContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.linkItems {
+    display: flex;
+    align-items: center;
+    color: $clr-white;
+    text-decoration: none;
+    gap: $gap-sm;
+    padding: $padding-lg $padding-3xl;
+    transition: all 0.3s ease-in-out;
+    font-size: $font-lg;
+
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:hover {
+        background-color: $clr-purple-light;
+        color: $clr-purple;
+        font-weight: bold;
+    }
+}
+
+.logoutContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-bottom: $margin-md;
+}
+
+.activeLink {
+    font-weight: bold;
+}
+
+@media screen and (max-width: $screen-3xl) {
+    .linkItems {
+        font-size: $font-sm;
+        padding: $padding-sm $padding-md;
+    }
+
+    .avatarContainer {
+        padding: $padding-md;
+    }
+
+    .avatarInnerContainer {
+        padding: $padding-md;
+    }
+}
+
+@media screen and (max-width: $screen-lg) {
+    .linkItems {
+        font-size: $font-xs;
+        display: flex;
+        justify-content: center;
+        span {
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+
+    .avatarContainer {
+        padding: $padding-sm;
+    }
+
+    .avatarInnerContainer {
+        padding: $padding-sm;
+    }
+
+    .avatar {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: $screen-sm) {
+    .linkItems {
+        padding: $padding-sm;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .avatarContainer {
+        padding: calc($padding-xs);
+    }
+
+    .avatarInnerContainer {
+        padding: calc($padding-xs);
+    }
+}

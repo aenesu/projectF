@@ -1,0 +1,22 @@
+@use "@/styles/variables" as *;
+
+.layoutContainer {
+    display: flex;
+    min-height: 100%;
+    position: relative;
+    padding: $padding-2xl;
+    gap: $gap-xl;
+}
+
+.layoutContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: $screen-sm) {
+    .layoutContainer {
+        padding: $padding-sm;
+        gap: $gap-sm;
+    }
+}

@@ -1,0 +1,62 @@
+@use "@/styles/variables" as *;
+
+.button {
+    display: flex;
+    align-items: center;
+    color: $clr-white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    padding: $padding-lg $padding-2xl;
+    gap: $gap-sm;
+    transition: all 0.3s ease-in-out;
+    font-size: $font-md;
+    margin-bottom: $margin-sm;
+    cursor: pointer;
+    width: 100%;
+    font-family: $font-roboto;
+
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:hover {
+        background-color: $clr-purple-light;
+        color: $clr-purple;
+        font-weight: bold;
+    }
+
+}
+
+
+@media screen and (max-width: $screen-3xl) {
+    .button {
+        font-size: $font-sm;
+        padding: $padding-sm $padding-md;
+    }
+}
+
+@media screen and (max-width: $screen-lg) {
+    .button {
+        font-size: $font-xs;
+        display: flex;
+        justify-content: center;
+        span {
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $screen-sm) {
+    .button {
+        padding: $padding-sm;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
