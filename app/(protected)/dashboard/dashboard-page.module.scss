@@ -1,0 +1,65 @@
+@use "@/styles/variables" as *;
+
+.dashboardContainer {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+    margin-top: $margin-md;
+    flex: 1;
+}
+
+.topbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $gap-md;
+}
+
+.informationContainer {
+    display: flex;
+    gap: $gap-md;
+}
+
+.contentContainer {
+    display: flex;
+    gap: $gap-xl;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+}
+
+.contentOne {
+    flex: 1;
+}
+
+@media screen and (max-width: $screen-3xl) {
+    .contentContainer {
+        margin-bottom: $margin-lg;
+    }
+}
+
+@media screen and (max-width: $screen-lg) {
+    .contentContainer {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: $screen-md) {
+    .contentContainer {
+        flex-direction: column;
+        gap: $gap-md;
+    }
+
+    .topbarContainer {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        gap: $gap-md;
+    }
+
+    .informationContainer {
+        justify-content: space-between;
+    }
+}
