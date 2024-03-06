@@ -1,2 +1,121 @@
 @use "@/styles/variables" as *;
 
+.container {
+    display: flex;
+    border-radius: $rounded-md;
+    position: relative;
+    background-color: $clr-purple;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: $padding-2xl $padding-3xl;
+    color: $clr-white;
+    flex: 1;
+    z-index: 10;
+    font-family: $font-modulus;
+    gap: $gap-md;
+}
+
+.date {
+    font-size: $font-sm;
+    margin-bottom: $margin-sm;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+}
+
+.title {
+    font-size: $font-3xl;
+    margin-bottom: $margin-md;
+}
+
+.description {
+    font-size: $font-lg;
+    margin-bottom: $margin-lg;
+}
+
+.imageContainer {
+    border-radius: $rounded-md;
+    height: 350px;
+    width: auto;
+    align-self: flex-end;
+}
+
+.image {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+@media screen and (max-width: $screen-3xl) {
+    .date {
+        font-size: $font-xs;
+        margin-bottom: $margin-xs;
+    }
+
+    .title {
+        font-size: $font-2xl;
+    }
+
+    .description {
+        font-size: $font-md;
+        margin-bottom: $margin-md;
+    }
+
+    .imageContainer {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: $screen-2xl) {
+    .date {
+        font-size: $font-2xs;
+    }
+
+    .title {
+        font-size: $font-xl;
+    }
+
+    .description {
+        font-size: $font-sm;
+        margin-bottom: $margin-sm;
+    }
+
+    .imageContainer {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: $screen-xl) {
+    .date {
+        gap: $gap-xs;
+    }
+
+    .title {
+        font-size: $font-lg;
+    }
+
+    .description {
+        font-size: $font-xs;
+        margin-bottom: $margin-sm;
+    }
+
+    .imageContainer {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: $screen-md) {
+    .container {
+        flex-direction: column;
+        gap: $gap-md;
+    }
+
+    .imageContainer {
+        display: none;
+    }
+}

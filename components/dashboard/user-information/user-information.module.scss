@@ -1,2 +1,36 @@
 @use "@/styles/variables" as *;
-
+.container {
+    display: flex;
+    gap: $gap-md;
+    align-items: center;
+}
+.title {
+    font-size: $font-lg;
+    font-weight: $text-light;
+    color: $clr-purple;
+    margin-bottom: $margin-xs;
+}
+.type {
+    font-size: $font-sm;
+    font-weight: $text-light;
+    span {
+        color: $clr-purple;
+        &:first-child {
+            margin-right: $margin-xs;
+        }
+        &:last-child {
+            font-weight: $text-bold;
+        }
+    }
+}
+@media screen and (max-width: $screen-lg) {
+    .container {
+        gap: $gap-sm;
+    }
+    .title {
+        font-size: $font-md;
+    }
+    .type {
+        font-size: $font-xs;
+    }
+}

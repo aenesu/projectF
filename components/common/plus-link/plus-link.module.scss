@@ -1,3 +1,54 @@
 @use "@/styles/variables" as *;
 
+.link {
+    position: relative;
+    color: $clr-purple;
+    text-decoration: none;
+    font-size: $font-xl;
+    display: flex;
+    align-items: center;
 
+    &:hover {
+        color: $clr-orange-dark;
+
+        .plus {
+            rotate: 90deg;
+            transition: 0.3s;
+            scale: 1.2;
+
+            .svg {
+                fill: $clr-success;
+            }
+        }
+    }
+
+    &:active {
+        .plus {
+            .svg {
+                fill: $clr-success-dark;
+            }
+        }
+    }
+}
+
+.plus {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.svg {
+    width: 20px;
+    height: 20px;
+    stroke: $clr-success-lighter;
+    fill: $clr-purple-light;
+    transition: all 0.5s ease-in-out;
+}

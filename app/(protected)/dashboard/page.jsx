@@ -1,10 +1,11 @@
 import Links from "@/components/common/links/links";
-import styles from "./dashboard-page.module.scss";
 import { Suspense } from "react";
 import UserInformation from "@/components/dashboard/user-information/user-information";
 import Notifications from "@/components/common/notifications/notifications";
 import UserInformationSkeleton from "@/components/dashboard/user-information/user-information-skeleton";
 import DashboardBanner from "@/components/dashboard/dashboard-banner/dashboard-banner";
+import styles from "./dashboard-page.module.scss";
+
 
 export default function DashboardPage() {
   return (

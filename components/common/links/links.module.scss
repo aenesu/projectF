@@ -1,2 +1,8 @@
 @use "@/styles/variables" as *;
 
+.container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $gap-md;
+}
