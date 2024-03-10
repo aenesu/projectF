@@ -1,0 +1,74 @@
+[
+    {
+        "_id": "1",
+        "name": "name",
+        "type": "text",
+        "label": "First Name",
+        "placeholder": "Please enter your first name",
+        "autoComplete": "given-name"
+    },
+    {
+        "_id": "2",
+        "name": "surname",
+        "type": "text",
+        "label": "Last Name",
+        "placeholder": "Please enter your last name",
+        "autoComplete": "family-name"
+    },
+    {
+        "_id": "3",
+        "name": "username",
+        "type": "text",
+        "label": "Username",
+        "placeholder": "Please enter your username",
+        "autoComplete": "username"
+    },
+    {
+        "_id": "4",
+        "name": "password",
+        "type": "password",
+        "label": "Password",
+        "placeholder": "•� •� •� •� •� •� •� •�",
+        "autoComplete": "current-password"
+    },
+    {
+        "_id": "5",
+        "name": "confirmPassword",
+        "type": "password",
+        "label": "Confirm Password",
+        "placeholder": "•� •� •� •� •� •� •� •�",
+        "autoComplete": "new-password"
+    },
+    {
+        "_id": "6",
+        "name": "ssn",
+        "type": "text",
+        "label": "SSN (XXX-XX-XXXX)",
+        "placeholder": "Please enter your SSN",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "7",
+        "name": "birthDay",
+        "type": "date",
+        "label": "Birth Day",
+        "placeholder": "Please enter your birth day",
+        "autoComplete": "bday"
+    },
+    {
+        "_id": "8",
+        "name": "birthPlace",
+        "type": "text",
+        "label": "Birth Place",
+        "placeholder": "Please enter your birth place",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "9",
+        "name": "phoneNumber",
+        "type": "tel",
+        "label": "Phone Number (XXX-XXX-XXXX)",
+        "placeholder": "Please enter your phone number",
+        "autoComplete": "tel-national"
+    }
+]

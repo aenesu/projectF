@@ -1,0 +1,104 @@
+@use "@/styles/variables" as *;
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin: 0 auto;
+    background-color: $clr-white;
+    height: 100%;
+    border-radius: $rounded-xl;
+    overflow: hidden;
+    padding: $padding-xl;
+    border: 1px solid $clr-purple-lighter;
+    box-shadow: $shadow-xs;
+    gap: $gap-md;
+}
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+}
+
+.label {
+    font-size: $font-lg;
+    font-weight: $text-bold;
+    color: $clr-purple-darker;
+}
+
+.input {
+    padding: $padding-sm;
+    border: 1px solid $clr-purple-light;
+    border-radius: $rounded-sm;
+    font-size: $font-md;
+    color: $clr-purple-darker;
+
+    &:focus {
+        outline: none;
+        border: 1px solid $clr-purple;
+    }
+
+    &::placeholder {
+        color: $clr-purple-light;
+    }
+}
+
+.select {
+    padding: $padding-sm;
+    border-radius: $rounded-sm;
+    background-color: $clr-purple-lighter;
+    border: 1px solid $clr-purple-light;
+    color: $clr-purple-darker;
+    font-size: $font-md;
+    width: 100%;
+
+    &:focus {
+        outline: none;
+        border: 1px solid $clr-purple;
+        box-shadow: $shadow-md;
+    }
+}
+
+.submitContainer {
+    margin-top: auto;
+}
+
+.error {
+    color: $clr-danger;
+    font-size: $font-xs;
+}
+
+@media (max-width: $screen-lg) {
+    .formContainer {
+        width: 100%;
+    }
+
+    .input, .label, .select {
+        font-size: $font-sm;
+    }
+
+    .error {
+        font-size: $font-xs;
+    }
+}
+
+@media (max-width: $screen-md) {
+    .formContainer {
+        padding: $padding-md;
+    }
+
+    .input, .label, .select {
+        font-size: $font-xs;
+    }
+
+    .error {
+        font-size: $font-2xs;
+    }
+}

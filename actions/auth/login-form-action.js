@@ -4,7 +4,7 @@ import { signIn } from "@/auth";
 import { DEFAULT_REDIRECT_PAGE } from "@/routes";
 import { transformErrors } from "@/utils/functions/transform-errors";
 import { trimFormDataFields } from "@/utils/functions/trim-form-data-fields";
-import { loginSchema } from "@/utils/validations/loginSchema";
+import { loginSchema } from "@/utils/validations/login-schema";
 import { AuthError } from "next-auth";
 
 export const loginFormAction = async (prevState, formData) => {

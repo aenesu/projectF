@@ -1,5 +1,5 @@
 import Credentials from "next-auth/providers/credentials";
-import { loginSchema } from "@/utils/validations/loginSchema";
+import { loginSchema } from "@/utils/validations/login-schema";
 import { login } from "@/actions/auth/login";
 import { apiPrefix, publicRoutes } from "@/routes";
 import { isTokenValid } from "@/utils/functions/is-token-valid";
