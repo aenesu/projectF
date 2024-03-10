@@ -1,0 +1,35 @@
+@use "@/styles/variables" as *;
+
+.container {
+    height: 100%;
+    flex: 1;
+    padding: $padding-sm;
+}
+
+.innerContainer {
+    background-color: $clr-purple-lighter;
+    height: 100%;
+    border-radius: $rounded-xl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $padding-sm;
+}
+
+.text {
+    color: $clr-purple;
+    font-family: $font-modulus;
+    font-size: $font-lg;
+}
+
+@media (max-width: $screen-3xl) {
+    .text {
+        font-size: $font-md;
+    }
+}
+
+@media (max-width: $screen-xl) {
+    .text {
+        font-size: $font-sm;
+    }
+}

@@ -18,8 +18,7 @@ export default function Avatar({
             {title
                 .split(" ")
                 .map((word) => word[0])
-                .join(".")
-            }
+                .join(".")}
         </div>
     ) : (
         <Image

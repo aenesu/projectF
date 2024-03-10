@@ -16,7 +16,7 @@ export default async function UserInformation() {
                     {session?.user?.name} {session?.user?.surname}
                 </h3>
                 <p className={styles.type}>
-                    <span>Account Type:</span>
+                    <span>Account Type: </span>
                     <span>{session?.user?.role}</span>
                 </p>
             </div>

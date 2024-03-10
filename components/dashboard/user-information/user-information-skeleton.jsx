@@ -1,6 +1,3 @@
-
 export default function UserInformationSkeleton() {
-  return (
-    <div>user-information-skeleton</div>
-  )
+    return <div>UserInformationSkeleton</div>;
 }

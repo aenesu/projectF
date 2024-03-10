@@ -12,8 +12,8 @@ export default function LogoutButton() {
             swalQuestion("Are you sure you want to logout?").then(
                 async (response) => {
                     if (response.isConfirmed) {
-                        await logout();
                         swalToast("You have been logged out!", "success");
+                        await logout();
                     }
                 }
             );

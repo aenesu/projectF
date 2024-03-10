@@ -1,0 +1,28 @@
+@use "@/styles/variables" as *;
+
+.heading {
+    font-family: $font-modulus;
+    color: $clr-purple;
+    font-size: $font-3xl;
+    text-align: center;
+    margin: $margin-lg;
+}
+
+@media (max-width: $screen-xl) {
+    .heading {
+        font-size: $font-2xl;
+        margin: $margin-md;
+    }
+}
+
+@media (max-width: $screen-md) {
+    .heading {
+        font-size: $font-xl;
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .heading {
+        font-size: $font-lg;
+    }
+}

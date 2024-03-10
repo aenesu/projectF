@@ -2,7 +2,7 @@ import { IoIosNotifications } from "react-icons/io";
 import styles from "./notifications.module.scss";
 
 export default function Notifications() {
-    const count = 0;
+    const count = 3;
 
     return (
         <div

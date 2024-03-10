@@ -7,22 +7,22 @@ export default function SubmitButton({ title, loadingText }) {
     const status = useFormStatus();
 
     return (
-        <button 
-            type="submit" 
+        <button
+            type="submit"
+            className={styles.submitButton}
             title={title}
-            className={styles.submitButton} 
             disabled={status.pending}>
-                {status.pending ? (
-                    <>
-                        <Loader />
-                        <span className={styles.submitting}>
-                            {loadingText || "Submitting"}
-                            <ThreeDots />
-                        </span>
-                    </>
-                ) : (
-                    title
-                )}
+            {status.pending ? (
+                <>
+                    <Loader />
+                    <span className={styles.submitting}>
+                        {loadingText || "Submitting"}
+                        <ThreeDots />
+                    </span>
+                </>
+            ) : (
+                title
+            )}
         </button>
     );
 }
