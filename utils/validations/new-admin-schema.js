@@ -26,7 +26,8 @@ export const newAdminSchema = z
         name: z.string().min(1, { message: "Name is required" }),
         password: z
             .string()
-            .min(1, { message: "Password is required" })
+            .min(8, { message: "Password is required" })
+            .max(60, {message: "Password is too long"})
             .regex(lowercaseRegex, {
                 message: "Password must contain at least one lowercase letter",
             })

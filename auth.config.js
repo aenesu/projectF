@@ -32,7 +32,6 @@ export const config = {
                     user: userInformation,
                     accessToken: user?.token?.split(" ")[1],
                 };
-                console.log(payload);
                 return payload;
             },
         }),

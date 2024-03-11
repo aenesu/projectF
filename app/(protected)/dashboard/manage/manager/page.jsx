@@ -1,12 +1,12 @@
 import PlusLink from "@/components/common/plus-link/plus-link";
-import { RiAdminFill } from "react-icons/ri";
 import { Suspense } from "react";
 import PageTitle from "@/components/common/page-title/page-title";
-import AdminList from "@/components/dashboard/admin/admin-list/admin-list";
+import { GrUserManager } from "react-icons/gr";
 import AdminListSkeleton from "@/components/dashboard/admin/admin-list/admin-list-skeleton";
+import ManagerList from "@/components/dashboard/manager/manager-list/manager-list";
 import styles from "./admin-management-page.module.scss";
 
-export default function AdminPage({ searchParams }) {
+export default function ManagerManagementPage({ searchParams }) {
     let { page, size, sort, type } = searchParams;
 
     page = page || 1;
@@ -17,14 +17,14 @@ export default function AdminPage({ searchParams }) {
     return (
         <>
             <div className={styles.addContainer}>
-                <PlusLink href="/dashboard/manage/admin/new" title="Admin">
-                    <RiAdminFill />
+                <PlusLink href="/dashboard/manage/manager/new" title="Manager">
+                    <GrUserManager />
                 </PlusLink>
             </div>
-            <PageTitle title="Admins" />
+            <PageTitle title="Managers (Deans)" />
             <div className={styles.container}>
                 <Suspense fallback={<AdminListSkeleton />}>
-                    <AdminList
+                    <ManagerList
                         page={page}
                         size={size}
                         sort={sort}

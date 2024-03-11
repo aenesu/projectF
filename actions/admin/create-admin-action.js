@@ -7,6 +7,7 @@ import { newAdminSchema } from "@/utils/validations/new-admin-schema";
 import moment from "moment";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { createAdmin } from "@/actions/admin/create-admin";
 
 export const createAdminAction = async (prevState, formData) => {
     const trimmedData = trimFormDataFields(formData);
@@ -32,6 +33,8 @@ export const createAdminAction = async (prevState, formData) => {
 
         const response = await createAdmin(payload);
 
+        const data = await response.json();
+
         if (!response.ok) {
             return errorObject("Something went wront!", {
                 commonError: response.message
@@ -40,10 +43,7 @@ export const createAdminAction = async (prevState, formData) => {
             });
         }
 
-        const data = await response.json();
-
         check = true;
-
         return {
             status: "success",
             message: "Admin created successfully!",

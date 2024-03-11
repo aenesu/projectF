@@ -1,0 +1,12 @@
+@use "@/styles/variables" as *;
+
+.skeletonLoader {
+    height: 100%;
+    width: 100%;
+    animation: $animation-pulse;
+    border-radius: $rounded-md;
+}
+
+.rounded {
+    border-radius: $rounded-full;
+}
