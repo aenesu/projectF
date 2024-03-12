@@ -7,11 +7,15 @@ import { newAdminSchema } from "@/utils/validations/new-admin-schema";
 import moment from "moment";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createManager } from "@/actions/manager/create-manager";
+import { updateManager } from "@/actions/manager/update-manager";
 
-export const createManagerAction = async (prevState, formData) => {
+export const updateManagerAction = async (prevState, formData) => {
     const trimmedData = trimFormDataFields(formData);
     let check;
+
+    const { userId } = trimmedData;
+
+    console.log("TRIMMED DATA: ", trimmedData);
 
     try {
         const validatedData = newAdminSchema.safeParse(trimmedData);
@@ -26,12 +30,16 @@ export const createManagerAction = async (prevState, formData) => {
             );
         }
 
+        // remove the confirmPassword field from the payload
+        // eslint-disable-next-line no-unused-vars
+        const { confirmPassword, ...restOfValidatedData } = validatedData.data;
+
         const payload = {
-            ...validatedData.data,
-            birthDay: moment(validatedData.data.birthDay).format("YYYY-MM-DD"),
+            ...restOfValidatedData,
+            birthDay: moment(restOfValidatedData.birthDay).format("YYYY-MM-DD"),
         };
 
-        const response = await createManager(payload);
+        const response = await updateManager(payload, userId);
 
         const data = await response.json();
 

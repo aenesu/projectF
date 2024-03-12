@@ -1,0 +1,131 @@
+@use "@/styles/variables" as *;
+
+.cardContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: $rounded-sm;
+    padding: $padding-md;
+    background-color: $clr-smoke;
+    box-shadow: $shadow-md-light;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    flex: 1 1 450px;
+
+    &:hover {
+        background-color: $clr-success-lighter !important;
+
+        .detail {
+            background-color: $clr-purple-lighter;
+        }
+    }
+}
+
+.cardHeader {
+    font-size: $font-lg;
+    color: $clr-purple;
+    margin-bottom: $margin-md;
+    text-transform: lowercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    background-color: $clr-purple-lighter;
+    padding: $padding-xs $padding-sm;
+    border-radius: $rounded-sm;
+}
+
+.detailLabel {
+    font-size: $font-md;
+    font-weight: bold;
+}
+
+.detailValue {
+    font-size: $font-md;
+}
+
+.builtIn {
+    background-color: $clr-danger-light;
+}
+
+.orderNumber {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $font-4xl;
+    color: $clr-purple;
+    opacity: 0.1;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.buttonsContainer {
+    display: flex;
+    align-items: center;
+    gap: $gap-xs;
+}
+
+@media (max-width: $screen-3xl) {
+    .cardHeader {
+        font-size: $font-md;
+    }
+
+    .detailLabel {
+        font-size: $font-sm;
+    }
+
+    .detailValue {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-2xl) {
+    .cardContainer {
+        flex: 1 1 350px;
+    }
+}
+
+@media (max-width: $screen-xl) {
+    .cardContainer {
+        flex: 1 1 300px;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .cardContainer {
+        padding: $padding-sm;
+    }
+
+    .cardHeader {
+        font-size: $font-sm;
+        margin-bottom: $margin-sm;
+    }
+
+    .cardBody {
+        gap: $gap-xs;
+    }
+
+    .detail {
+        padding: $padding-xs;
+    }
+
+    .detailLabel {
+        font-size: $font-xs;
+    }
+
+    .detailValue {
+        font-size: $font-xs;
+    }
+}

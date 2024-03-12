@@ -6,11 +6,11 @@ import adminFormData from "@/data/admin-form.json";
 import genderOptions from "@/data/gender-options.json";
 import ErrorText from "@/components/common/error-text/error-text";
 import { swalToast } from "@/utils/functions/swal/swal-toast";
-import { createManagerAction } from "@/actions/manager/create-manager-action";
+import { updateManagerAction } from "@/actions/manager/update-manager-action";
 import styles from "./manager-form.module.scss";
 
-export default function ManagerForm() {
-    const [state, dispatch] = useFormState(createManagerAction, {
+export default function UpdateManagerForm({ data }) {
+    const [state, dispatch] = useFormState(updateManagerAction, {
         status: "",
         message: null,
         errors: {},
@@ -22,6 +22,15 @@ export default function ManagerForm() {
 
     return (
         <form action={dispatch} className={styles.formContainer}>
+            {/* IF THERE WAS A PROBLEM FETCHING USER DATA */}
+            {data?.status === "error" && (
+                <div className={styles.errorContainer}>
+                    <ErrorText
+                        text={data?.errors?.commonError || data?.message}
+                    />
+                </div>
+            )}
+            {/* IF THERE WAS A PROBLEM WITH THE FORM */}
             {state?.errors && state?.errors?.commonError && (
                 <div className={styles.errorContainer}>
                     <ErrorText text={state?.errors?.commonError} />
@@ -33,7 +42,11 @@ export default function ManagerForm() {
                     <label htmlFor="gender" className={styles.label}>
                         Gender
                     </label>
-                    <select name="gender" id="gender" className={styles.select}>
+                    <select
+                        name="gender"
+                        id="gender"
+                        className={styles.select}
+                        defaultValue={data?.object?.gender}>
                         {genderOptions.map((item) => (
                             <option key={item._id} value={item.value}>
                                 {item.label}
@@ -54,6 +67,7 @@ export default function ManagerForm() {
                         <input
                             autoComplete={item.autoComplete}
                             className={styles.input}
+                            defaultValue={data?.object?.[item.name] || ""}
                             id={item.name}
                             name={item.name}
                             placeholder={item.placeholder}
@@ -68,7 +82,7 @@ export default function ManagerForm() {
                 ))}
             </div>
             <div className={styles.submitContainer}>
-                <SubmitButton title="Create" loadingText="Creating" />
+                <SubmitButton title="Update" loadingText="Updating" />
             </div>
         </form>
     );

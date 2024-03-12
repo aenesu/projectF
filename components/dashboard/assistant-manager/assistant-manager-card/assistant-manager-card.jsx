@@ -3,7 +3,7 @@ import styles from "./manager-card.module.scss";
 import DeleteButton from "@/components/common/delete-button/delete-button";
 import { deleteManager } from "@/actions/manager/delete-manager";
 
-export default function ManagerCard({ data, orderNumber }) {
+export default function AssistantManagerCard({ data, orderNumber }) {
     const dataToMap = [
         {
             label: "Full Name:",

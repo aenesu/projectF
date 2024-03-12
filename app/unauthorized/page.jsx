@@ -6,7 +6,6 @@ import styles from "./unauthorized-page.module.scss";
 
 export default async function UnauthorizedPage() {
     const session = await auth();
-    console.log(session);
 
     return (
         <div className={styles.container}>

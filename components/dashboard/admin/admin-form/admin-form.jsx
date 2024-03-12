@@ -16,8 +16,6 @@ export default function AdminForm() {
         errors: {},
     });
 
-    console.log(state);
-
     if (state?.status === "error") {
         swalToast(state?.message, "error", 3000);
     }

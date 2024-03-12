@@ -9,7 +9,7 @@ import { swalToast } from "@/utils/functions/swal/swal-toast";
 import { createManagerAction } from "@/actions/manager/create-manager-action";
 import styles from "./manager-form.module.scss";
 
-export default function ManagerForm() {
+export default function AssistantManagerForm() {
     const [state, dispatch] = useFormState(createManagerAction, {
         status: "",
         message: null,
