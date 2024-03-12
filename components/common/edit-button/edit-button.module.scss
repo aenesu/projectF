@@ -1,0 +1,58 @@
+@use "@/styles/variables" as *;
+
+.button {
+    width: 30px;
+    height: 30px;
+    border-radius: $rounded-full;
+    background-color: $clr-purple-light;
+    border: none;
+    font-weight: $text-bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow-md;
+    cursor: pointer;
+    transition: all 0.3s;
+    overflow: hidden;
+    position: relative;
+    text-transform: capitalize;
+
+    &::before {
+        position: absolute;
+        top: -27px;
+        content: "Edit";
+        color: white;
+        transition-duration: 0.3s;
+        font-size: 2px;
+    }
+
+    &:hover {
+        width: 80px;
+        border-radius: $rounded-xs;
+        transition-duration: 0.3s;
+        background-color: $clr-orange-light;
+        align-items: center;
+
+        .svgIcon {
+            width: 20px;
+            transition-duration: 0.3s;
+            transform: translateY(60%);
+        }
+
+        &::before {
+            font-size: $font-xs;
+            opacity: 1;
+            transform: translateY(30px);
+            transition-duration: 0.3s;
+        }
+    }
+}
+
+.svgIcon {
+    width: 20px;
+    transition-duration: 0.3s;
+
+    path {
+        fill: white;
+    }
+}

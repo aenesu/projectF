@@ -10,8 +10,6 @@ export default function AdminListSkeleton() {
                 <SkeletonLoader height="230px" flex="1 1 450px" />
                 <SkeletonLoader height="230px" flex="1 1 450px" />
                 <SkeletonLoader height="230px" flex="1 1 450px" />
-                <SkeletonLoader height="230px" flex="1 1 450px" />
-                <SkeletonLoader height="230px" flex="1 1 450px" />
             </div>
             <hr className={styles.hr} />
             <div className={styles.paginationContainer}>

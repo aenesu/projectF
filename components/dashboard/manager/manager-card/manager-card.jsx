@@ -1,6 +1,7 @@
 import EditButton from "@/components/common/edit-button/edit-button";
 import styles from "./manager-card.module.scss";
 import DeleteButton from "@/components/common/delete-button/delete-button";
+import { deleteManager } from "@/actions/manager/delete-manager";
 
 export default function ManagerCard({ data, orderNumber }) {
     const dataToMap = [
@@ -34,9 +35,21 @@ export default function ManagerCard({ data, orderNumber }) {
             <div className={styles.cardHeader}>
                 @{data?.username}
                 <div className={styles.buttonsContainer}>
-                    <EditButton />
-                    <form action="">
-                        <DeleteButton />
+                    <EditButton
+                        title={`Edit ${data?.name} ${data?.surname}`}
+                        href={`/dashboard/manage/manager/edit/${data?.userId}`}
+                    />
+                    <form action={deleteManager}>
+                        <DeleteButton
+                            cb={deleteManager}
+                            id={data?.userId}
+                            title={`Delete ${data?.name} ${data?.surname}`}
+                            simple
+                            builtIn={data?.built_in}
+                            errorText={`There was a problem deleting ${data?.name} ${data?.surname}`}
+                            questionText={`Are you sure you want to delete ${data?.name} ${data?.surname}?`}
+                            successText={`${data?.name} ${data?.surname} has been deleted successfully!`}
+                        />
                     </form>
                 </div>
             </div>

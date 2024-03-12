@@ -3,16 +3,13 @@ import { BASE_URL } from "@/actions/base-url";
 import { auth } from "@/auth";
 
 /**
-*
-* @param {number} page
-* @param {number} size
-* @param {string} sort
-* @param {string} type
-* @returns
-*/
-
-
-
+ *
+ * @param {number} page
+ * @param {number} size
+ * @param {string} sort
+ * @param {string} type
+ * @returns
+ */
 
 export const getManagersByPage = async (
     page = 0,

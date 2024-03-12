@@ -71,6 +71,12 @@
     pointer-events: none;
 }
 
+.buttonsContainer {
+    display: flex;
+    align-items: center;
+    gap: $gap-xs;
+}
+
 @media (max-width: $screen-3xl) {
     .cardHeader {
         font-size: $font-md;

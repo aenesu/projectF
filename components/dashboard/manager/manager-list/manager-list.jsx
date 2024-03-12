@@ -1,12 +1,12 @@
 import NoDataAvailable from "@/components/common/no-data-available/no-data-available";
-import { getAdminsByPage } from "@/actions/admin/get-admins-by-page";
-import AdminCard from "@/components/dashboard/admin/admin-card/admin-card";
 import { calculateOrderNumber } from "@/utils/functions/calculate-order-number";
 import Pagination from "@/components/common/pagination/pagination";
-import styles from "./manager-list.module.scss";
+import { getManagersByPage } from "@/actions/manager/get-managers-by-page";
+import ManagerCard from "@/components/dashboard/manager/manager-card/manager-card";
+import styles from "./admin-list.module.scss";
 
 export default async function ManagerList({ page, size, sort, type }) {
-    const data = await getAdminsByPage(page - 1, size, sort, type);
+    const data = await getManagersByPage(page - 1, size, sort, type);
     const isData =
         data && data?.status !== "error" && data?.content?.length > 0;
 
@@ -15,7 +15,7 @@ export default async function ManagerList({ page, size, sort, type }) {
             <div className={styles.cardsContainer}>
                 {isData ? (
                     data?.content?.map((item, index) => (
-                        <AdminCard
+                        <ManagerCard
                             key={index}
                             data={item}
                             orderNumber={calculateOrderNumber(
