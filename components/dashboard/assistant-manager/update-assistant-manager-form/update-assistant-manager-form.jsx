@@ -6,11 +6,11 @@ import adminFormData from "@/data/admin-form.json";
 import genderOptions from "@/data/gender-options.json";
 import ErrorText from "@/components/common/error-text/error-text";
 import { swalToast } from "@/utils/functions/swal/swal-toast";
-import { updateManagerAction } from "@/actions/manager/update-manager-action";
+import { updateAssistantManagerAction } from "@/actions/assistant-manager/update-assistant-manager-action";
 import styles from "./manager-form.module.scss";
 
-export default function UpdateManagerForm({ data }) {
-    const [state, dispatch] = useFormState(updateManagerAction, {
+export default function UpdateAssistantManagerForm({ data }) {
+    const [state, dispatch] = useFormState(updateAssistantManagerAction, {
         status: "",
         message: null,
         errors: {},
@@ -59,6 +59,13 @@ export default function UpdateManagerForm({ data }) {
                         </span>
                     )}
                 </div>
+                {/* FORM DATA */}
+                {/* Send user id to the server action to update user with that id */}
+                <input
+                    type="hidden"
+                    name="userId"
+                    value={data?.object?.userId}
+                />
                 {adminFormData.map((item) => (
                     <div key={item._id} className={styles.inputGroup}>
                         <label htmlFor={item.name} className={styles.label}>

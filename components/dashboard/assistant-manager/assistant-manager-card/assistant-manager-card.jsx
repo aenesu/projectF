@@ -1,7 +1,7 @@
 import EditButton from "@/components/common/edit-button/edit-button";
-import styles from "./manager-card.module.scss";
 import DeleteButton from "@/components/common/delete-button/delete-button";
-import { deleteManager } from "@/actions/manager/delete-manager";
+import { deleteAssistantManager } from "@/actions/assistant-manager/delete-assistant-manager";
+import styles from "./manager-card.module.scss";
 
 export default function AssistantManagerCard({ data, orderNumber }) {
     const dataToMap = [
@@ -37,11 +37,11 @@ export default function AssistantManagerCard({ data, orderNumber }) {
                 <div className={styles.buttonsContainer}>
                     <EditButton
                         title={`Edit ${data?.name} ${data?.surname}`}
-                        href={`/dashboard/manage/manager/edit/${data?.userId}`}
+                        href={`/dashboard/manage/assistant-manager/edit/${data?.userId}`}
                     />
-                    <form action={deleteManager}>
+                    <form action={deleteAssistantManager}>
                         <DeleteButton
-                            cb={deleteManager}
+                            cb={deleteAssistantManager}
                             id={data?.userId}
                             title={`Delete ${data?.name} ${data?.surname}`}
                             simple

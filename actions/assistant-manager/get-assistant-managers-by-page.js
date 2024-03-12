@@ -3,7 +3,7 @@ import { BASE_URL } from "@/actions/base-url";
 import { auth } from "@/auth";
 
 /**
- * Get all managers by page as a user with "ADMIN" role
+ * Get all assistant managers by page as a user with "ADMIN" | "MANAGER" role
  *
  * @param {number} page
  * @param {number} size
@@ -12,7 +12,7 @@ import { auth } from "@/auth";
  * @returns
  */
 
-export const getManagersByPage = async (
+export const getAssistantManagersByPage = async (
     page = 0,
     size = 20,
     sort = "name",
@@ -22,7 +22,7 @@ export const getManagersByPage = async (
 
     try {
         const response = await fetch(
-            `${BASE_URL}/dean/search?page=${page}&size=${size}&sort=${sort}&type=${type}`,
+            `${BASE_URL}/vicedean/search?page=${page}&size=${size}&sort=${sort}&type=${type}`,
             {
                 method: "GET",
                 headers: {
@@ -33,13 +33,15 @@ export const getManagersByPage = async (
         );
         if (!response.ok) {
             return errorObject(
-                "An error occurred while fetching the manager data"
+                "An error occurred while fetching the assistant manager data"
             );
         }
 
         const data = await response.json();
         return data;
     } catch (error) {
-        return errorObject("An error occurred while fetching the manager data");
+        return errorObject(
+            "An error occurred while fetching the assistant manager data"
+        );
     }
 };

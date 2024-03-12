@@ -3,10 +3,9 @@ import { BASE_URL } from "@/actions/base-url";
 import { auth } from "@/auth";
 
 /**
- * Create an assistant manager as a user with "ADMIN" role
+ * Create an assistant manager as a user with "ADMIN" | "MANAGER" role
  *
  * @param {*} payload
- * @param {*} id
  *
  * @example
  *
@@ -25,10 +24,10 @@ import { auth } from "@/auth";
  * @returns
  */
 
-export const createManager = async (payload) => {
+export const createAssistantManager = async (payload) => {
     const session = await auth();
 
-    const response = await fetch(`${BASE_URL}/dean/save`, {
+    const response = await fetch(`${BASE_URL}/vicedean/save`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

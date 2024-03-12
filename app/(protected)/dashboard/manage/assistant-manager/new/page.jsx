@@ -1,11 +1,11 @@
 import PageTitle from "@/components/common/page-title/page-title";
-import ManagerForm from "@/components/dashboard/manager/manager-form/manager-form";
+import AssistantManagerForm from "@/components/dashboard/assistant-manager/assistant-manager-form/assistant-manager-form";
 
-export default function NewManagerPage() {
+export default function NewAssistantManagerPage() {
     return (
         <>
-            <PageTitle title="Create New Manager" />
-            <ManagerForm />
+            <PageTitle title="Create New Assistant Manager" />
+            <AssistantManagerForm />
         </>
     );
 }

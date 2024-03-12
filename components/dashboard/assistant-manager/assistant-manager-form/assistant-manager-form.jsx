@@ -6,11 +6,11 @@ import adminFormData from "@/data/admin-form.json";
 import genderOptions from "@/data/gender-options.json";
 import ErrorText from "@/components/common/error-text/error-text";
 import { swalToast } from "@/utils/functions/swal/swal-toast";
-import { createManagerAction } from "@/actions/manager/create-manager-action";
+import { createAssistantManagerAction } from "@/actions/assistant-manager/create-assistant-manager-action";
 import styles from "./manager-form.module.scss";
 
 export default function AssistantManagerForm() {
-    const [state, dispatch] = useFormState(createManagerAction, {
+    const [state, dispatch] = useFormState(createAssistantManagerAction, {
         status: "",
         message: null,
         errors: {},
