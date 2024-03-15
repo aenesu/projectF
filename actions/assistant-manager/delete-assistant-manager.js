@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 
 /**
  * Delete an assistant manager as a user with "ADMIN" | "MANAGER" role
- * @param id
+ * @param {string | number} id
  * @returns
  */
 

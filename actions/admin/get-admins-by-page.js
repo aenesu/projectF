@@ -5,7 +5,7 @@ import { auth } from "@/auth";
 import { errorObject } from "@/utils/functions/error-object";
 
 /**
- * Get all admins as a user with admin role
+ * Get all admins as a user with "ADMIN" role
  *
  * @param {number} page
  * @param {number} size

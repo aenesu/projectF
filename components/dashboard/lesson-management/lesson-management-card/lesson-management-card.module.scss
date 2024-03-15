@@ -1,0 +1,90 @@
+@use "@/styles/variables" as *;
+
+.cardContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: $rounded-sm;
+    padding: $padding-md;
+    background-color: $clr-smoke;
+    box-shadow: $shadow-md-light;
+    overflow: hidden;
+    transition: background-color 0.5s ease-in-out;
+    flex: 1 1 300px;
+    gap: $gap-xs;
+
+    &:hover {
+        background-color: $clr-success-lighter !important;
+
+        .detail {
+            background-color: $clr-purple-lighter;
+        }
+    }
+}
+
+.orderNumber {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $font-4xl;
+    color: $clr-purple;
+    opacity: 0.1;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.deleteContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.compulsory {
+    font-family: $font-modulus;
+    text-align: right;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+.lessonName {
+    font-family: $font-modulus;
+    color: $clr-purple;
+    font-weight: bolder;
+    margin-bottom: $margin-md;
+}
+
+.item {
+    color: $clr-purple;
+    font-size: $font-md;
+}
+
+.success {
+    color: $clr-success !important;
+}
+
+.danger {
+    color: $clr-danger !important;
+}
+
+@media (max-width: $screen-sm) {
+    .cardContainer {
+        flex: 1 1 100%;
+    }
+
+    .backNumber {
+        font-size: $font-3xl;
+    }
+
+    .lessonName {
+        font-size: $font-lg;
+    }
+
+    .item {
+        font-size: $font-sm;
+    }
+
+    .compulsory {
+        font-size: $font-sm;
+    }
+}

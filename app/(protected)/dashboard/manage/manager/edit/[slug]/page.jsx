@@ -10,7 +10,7 @@ export default async function ManagerEditPage({ params }) {
     return (
         <>
             <PageTitle title={`Update Manager - ${slug}`} />
-            <UpdateManagerForm data={data} slug={slug} />
+            <UpdateManagerForm data={data} />
         </>
     );
 }

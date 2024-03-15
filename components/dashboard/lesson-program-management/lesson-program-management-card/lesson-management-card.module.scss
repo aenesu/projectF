@@ -1,0 +1,173 @@
+@use "@/styles/variables" as *;
+
+.cardContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: $rounded-sm;
+    padding: $padding-md;
+    background-color: $clr-smoke;
+    box-shadow: $shadow-md-light;
+    gap: $gap-md;
+    transition: background-color 0.5s ease-in-out;
+    overflow: hidden;
+    flex: 1 1 480px;
+
+    &:hover {
+        background-color: $clr-success-lighter !important;
+    }
+}
+
+.orderNumber {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $font-4xl;
+    color: $clr-purple;
+    opacity: 0.1;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contentContainer {
+    display: flex;
+    gap: $gap-lg;
+}
+
+.deleteContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.lessonName {
+    font-family: $font-modulus;
+    color: $clr-purple;
+    font-weight: bolder;
+    margin-bottom: $margin-md;
+}
+
+.title {
+    font-family: $font-modulus;
+    color: $clr-purple;
+    font-size: $font-lg;
+    font-weight: bold;
+}
+
+.classInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $gap-xs;
+}
+
+.day {
+    color: $clr-purple;
+    font-size: $font-md;
+    background-color: $clr-purple-lighter;
+    border-radius: $rounded-sm;
+    padding: $padding-xs $padding-sm;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+        &:first-child {
+            font-weight: $text-bold;
+        }
+
+        &:last-child {
+            color: $clr-danger;
+        }
+    }
+}
+
+.time {
+    color: $clr-purple;
+    font-size: $font-md;
+    background-color: $clr-purple-lighter;
+    border-radius: $rounded-sm;
+    padding: $padding-xs $padding-sm;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    font-style: italic;
+}
+
+.lessonList {
+    list-style: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+}
+
+.lessonItem {
+    background-color: $clr-purple-lighter;
+    border-radius: $rounded-sm;
+    font-size: $font-sm;
+    padding: $padding-xs $padding-sm;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        &:first-child {
+            color: $clr-purple;
+            font-weight: $text-bold;
+        }
+
+        &:last-child {
+            color: $clr-danger;
+        }
+    }
+}
+
+@media screen and (max-width: $screen-2xl) {
+    .cardContainer {
+        flex: 1 0 350px;
+    }
+
+    .title {
+        font-size: $font-md;
+    }
+
+    .day,
+    .time {
+        font-size: $font-xs;
+    }
+
+    .lessonItem {
+        font-size: $font-2xs;
+    }
+}
+
+@media screen and (max-width: $screen-xl) {
+    .contentContainer {
+        flex-direction: column;
+        gap: $gap-sm;
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .cardContainer {
+        flex: 1 1 100%;
+    }
+
+    .orderNumber {
+        font-size: $font-3xl;
+    }
+
+    .lessonName {
+        font-size: $font-lg;
+    }
+}

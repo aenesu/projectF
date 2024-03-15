@@ -15,8 +15,6 @@ export const updateManagerAction = async (prevState, formData) => {
 
     const { userId } = trimmedData;
 
-    console.log("TRIMMED DATA: ", trimmedData);
-
     try {
         const validatedData = newAdminSchema.safeParse(trimmedData);
         if (!validatedData.success) {
@@ -47,14 +45,14 @@ export const updateManagerAction = async (prevState, formData) => {
             return errorObject("Something went wrong!", {
                 commonError: data.message
                     ? data.message
-                    : "Some bad things happened while trying to create the manager.",
+                    : "Some bad things happened while trying to update the manager.",
             });
         }
 
         check = true;
         return {
             status: "success",
-            message: "Manager created successfully!",
+            message: "Manager updated successfully!",
             data: data,
         };
     } catch (error) {

@@ -1,0 +1,111 @@
+@use "@/styles/variables" as *;
+
+.cardContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: $rounded-sm;
+    padding: $padding-md;
+    background-color: $clr-smoke;
+    box-shadow: $shadow-md-light;
+    overflow: hidden;
+    transition: background-color 0.5s ease-in-out;
+    flex: 1 1 350px;
+
+    &:hover {
+        background-color: $clr-success-lighter !important;
+
+        .detail {
+            background-color: $clr-purple-lighter;
+        }
+    }
+}
+
+.orderNumber {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $font-4xl;
+    color: $clr-purple;
+    opacity: 0.1;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.deleteContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.term {
+    font-family: $font-modulus;
+    color: $clr-purple;
+    font-weight: bolder;
+    margin-bottom: $margin-md;
+}
+
+.item {
+    color: $clr-purple;
+    font-size: $font-md;
+}
+
+.last {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $gap-sm;
+
+    span {
+        &:last-child {
+            font-family: $font-modulus;
+            color: $clr-danger;
+            font-weight: bold;
+        }
+    }
+}
+
+.ongoing {
+    background-color: $clr-success-light !important;
+}
+
+.past {
+    background-color: $clr-danger-light !important;
+}
+
+.upcoming {
+    background-color: $clr-warning-light !important;
+}
+
+@media (max-width: $screen-xl) {
+    .cardContainer {
+        flex: 1 1 300px;
+    }
+
+    .term {
+        font-size: $font-lg;
+    }
+
+    .item {
+        font-size: $font-sm;
+    }
+
+    .last {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .term {
+        font-size: $font-md;
+    }
+
+    .item {
+        font-size: $font-xs;
+    }
+
+    .last {
+        font-size: $font-xs;
+    }
+}

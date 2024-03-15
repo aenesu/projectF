@@ -1,0 +1,37 @@
+[
+    {
+        "_id": 1,
+        "value": "MONDAY",
+        "label": "Monday"
+    },
+    {
+        "_id": 2,
+        "value": "TUESDAY",
+        "label": "Tuesday"
+    },
+    {
+        "_id": 3,
+        "value": "WEDNESDAY",
+        "label": "Wednesday"
+    },
+    {
+        "_id": 4,
+        "value": "THURSDAY",
+        "label": "Thursday"
+    },
+    {
+        "_id": 5,
+        "value": "FRIDAY",
+        "label": "Friday"
+    },
+    {
+        "_id": 6,
+        "value": "SATURDAY",
+        "label": "Saturday"
+    },
+    {
+        "_id": 7,
+        "value": "SUNDAY",
+        "label": "Sunday"
+    }
+]

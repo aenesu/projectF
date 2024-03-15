@@ -3,10 +3,9 @@ import { BASE_URL } from "@/actions/base-url";
 import { auth } from "@/auth";
 
 /**
- * Create an assistant manager as a user with "ADMIN" role
+ * Create a manager as a user with "ADMIN" role
  *
  * @param {*} payload
- * @param {*} id
  *
  * @example
  *

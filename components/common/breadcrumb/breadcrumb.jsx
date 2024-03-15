@@ -16,7 +16,7 @@ export default function Breadcrumb() {
     const breadcrumbItems = filteredSegments.map((segment, index) => {
         const formattedSegment = segment.replace(/-/g, " ");
         const path = `/${filteredSegments.slice(0, index + 1).join("/")}`;
-
+        // TODO: The breadcrumb doesn't work properly probably due to filtering the segments
         return (
             <li key={index} className={styles.breadcrumbItem}>
                 <Link

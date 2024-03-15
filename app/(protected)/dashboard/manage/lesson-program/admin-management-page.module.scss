@@ -1,0 +1,29 @@
+@use "@/styles/variables" as *;
+
+.container {
+    background-color: $clr-white;
+    height: 100%;
+    border-radius: $rounded-xl;
+    padding: $padding-xl;
+    border: 1px solid $clr-purple-lighter;
+    box-shadow: $shadow-xs;
+}
+
+.addContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: $padding-md;
+}
+
+@media (max-width: $screen-md) {
+    .container {
+        padding: $padding-md;
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .container {
+        padding: $padding-sm;
+    }
+}

@@ -6,7 +6,6 @@ export default async function AssistantManagerEditPage({ params }) {
     const { slug } = params;
 
     const data = await getAssistantManagerById(slug);
-    console.log(data);
 
     return (
         <>

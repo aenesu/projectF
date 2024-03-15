@@ -12,7 +12,7 @@ export default function AdminCard({ data, orderNumber }) {
         },
         {
             label: "Birthday:",
-            value: `${data?.birthday} (${data?.birthPlace})`,
+            value: `${data?.birthDay} (${data?.birthPlace})`,
         },
         {
             label: "Phone:",

@@ -1,0 +1,23 @@
+[
+    {
+        "_id": "1",
+        "autoComplete": "off",
+        "label": "Start Date",
+        "name": "startDate",
+        "type": "date"
+    },
+    {
+        "_id": "2",
+        "autoComplete": "off",
+        "label": "Last Registration Date",
+        "name": "lastRegistrationDate",
+        "type": "date"
+    },
+    {
+        "_id": "3",
+        "autoComplete": "off",
+        "label": "End Date",
+        "name": "endDate",
+        "type": "date"
+    }
+]

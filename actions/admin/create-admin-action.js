@@ -37,8 +37,8 @@ export const createAdminAction = async (prevState, formData) => {
 
         if (!response.ok) {
             return errorObject("Something went wront!", {
-                commonError: response.message
-                    ? response.message
+                commonError: data?.message
+                    ? data?.message
                     : "Some bad things happened while trying to create the admin.",
             });
         }

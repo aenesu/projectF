@@ -14,6 +14,7 @@ export default function Pagination({ baseUrl, currentPage, totalPages, size }) {
                 className={`${styles.pageItem} ${
                     currentPage === i + 1 ? styles.active : ""
                 }`}
+                aria-disabled={currentPage === i + 1}
                 title={`Go To Page ${i + 1}`}>
                 {i + 1}
             </Link>
@@ -41,6 +42,7 @@ export default function Pagination({ baseUrl, currentPage, totalPages, size }) {
                     className={`${styles.pageItem} ${
                         currentPage === 1 ? styles.active : ""
                     }`}
+                    aria-disabled={currentPage === 1}
                     title={`Go To Page 1`}>
                     1
                 </Link>
@@ -55,6 +57,7 @@ export default function Pagination({ baseUrl, currentPage, totalPages, size }) {
                         className={`${styles.pageItem} ${
                             currentPage === page ? styles.active : ""
                         }`}
+                        aria-disabled={currentPage === page}
                         title={`Go To Page ${page}`}>
                         {page}
                     </Link>
@@ -66,6 +69,7 @@ export default function Pagination({ baseUrl, currentPage, totalPages, size }) {
                     className={`${styles.pageItem} ${
                         currentPage === totalPages ? styles.active : ""
                     }`}
+                    aria-disabled={currentPage === totalPages}
                     title={`Go To Page ${totalPages}`}>
                     {totalPages}
                 </Link>

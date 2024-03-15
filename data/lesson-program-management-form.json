@@ -1,0 +1,18 @@
+[
+    {
+        "_id": "1",
+        "name": "startTime",
+        "type": "time",
+        "label": "Starts At",
+        "placeholder": "Please enter when the event starts",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "2",
+        "name": "stopTime",
+        "type": "time",
+        "label": "Ends At",
+        "placeholder": "Please enter when the event ends",
+        "autoComplete": "off"
+    }
+]

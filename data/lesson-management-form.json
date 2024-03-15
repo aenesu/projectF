@@ -1,0 +1,26 @@
+[
+    {
+        "_id": "1",
+        "name": "compulsory",
+        "type": "checkbox",
+        "label": "Compulsory",
+        "placeholder": "",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "2",
+        "name": "creditScore",
+        "type": "number",
+        "label": "Credit Score",
+        "placeholder": "",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "3",
+        "name": "lessonName",
+        "type": "text",
+        "label": "Lesson Name",
+        "placeholder": "Please enter lesson name",
+        "autoComplete": "off"
+    }
+]

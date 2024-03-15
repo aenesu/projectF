@@ -1,0 +1,17 @@
+[
+    {
+        "_id": "1",
+        "label": "Select Education Term",
+        "value": ""
+    },
+    {
+        "_id": "2",
+        "label": "Fall",
+        "value": "FALL_SEMESTER"
+    },
+    {
+        "_id": "3",
+        "label": "Spring",
+        "value": "SPRING_SEMESTER"
+    }
+]
