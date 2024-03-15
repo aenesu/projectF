@@ -3,6 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./multi-select.module.scss";
 
+const handleClickOutside = (event, ref, callback) => {};
+
+const toggleItemSelection = (itemValue, callback) => {
+    callback((prevSelectedItems) => {
+        if (prevSelectedItems.includes(itemValue))
+            return prevSelectedItems.filter(
+                (prevSelectedItem) => prevSelectedItem !== itemValue
+            );
+        else return [...prevSelectedItems, itemValue];
+    });
+};
+
 export default function MultiSelect({ data, defaultValues, name, title }) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
