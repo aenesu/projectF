@@ -1,0 +1,98 @@
+[
+    {
+        "_id": "1",
+        "name": "name",
+        "type": "text",
+        "label": "First Name",
+        "placeholder": "Enter the first name",
+        "autoComplete": "given-name"
+    },
+    {
+        "_id": "2",
+        "name": "surname",
+        "type": "text",
+        "label": "Last Name",
+        "placeholder": "Enter the last name",
+        "autoComplete": "family-name"
+    },
+    {
+        "_id": "3",
+        "name": "username",
+        "type": "text",
+        "label": "Username",
+        "placeholder": "Enter the username",
+        "autoComplete": "username"
+    },
+    {
+        "_id": "4",
+        "name": "password",
+        "type": "password",
+        "label": "Password",
+        "placeholder": "•� •� •� •� •� •� •� •�",
+        "autoComplete": "current-password"
+    },
+    {
+        "_id": "5",
+        "name": "confirmPassword",
+        "type": "password",
+        "label": "Confirm Password",
+        "placeholder": "•� •� •� •� •� •� •� •�",
+        "autoComplete": "new-password"
+    },
+    {
+        "_id": "6",
+        "name": "ssn",
+        "type": "text",
+        "label": "SSN (XXX-XX-XXXX)",
+        "placeholder": "Enter the SSN",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "7",
+        "name": "birthDay",
+        "type": "date",
+        "label": "Birth Day",
+        "placeholder": "Enter the birth day",
+        "autoComplete": "bday"
+    },
+    {
+        "_id": "8",
+        "name": "birthPlace",
+        "type": "text",
+        "label": "Birth Place",
+        "placeholder": "Enter the birth place",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "9",
+        "name": "phoneNumber",
+        "type": "tel",
+        "label": "Phone Number (XXX-XXX-XXXX)",
+        "placeholder": "Enter the phone number",
+        "autoComplete": "tel-national"
+    },
+    {
+        "_id": "10",
+        "name": "email",
+        "type": "email",
+        "label": "Email",
+        "placeholder": "Enter email address",
+        "autoComplete": "email"
+    },
+    {
+        "_id": "11",
+        "name": "fatherName",
+        "type": "text",
+        "label": "Father Name",
+        "placeholder": "Enter the father name",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "12",
+        "name": "motherName",
+        "type": "text",
+        "label": "Mother Name",
+        "placeholder": "Enter the mother name",
+        "autoComplete": "off"
+    }
+]

@@ -5,12 +5,12 @@ import { errorObject } from "@/utils/functions/error-object";
 import { revalidatePath } from "next/cache";
 
 /**
- * Delete a manager as a user with "ADMIN" role
+ * Delete a student as a user with "ADMIN" | "ASSISTANTMANAGER" role
  * @param {string | number} id
  * @returns
  */
 
-export const deleteManager = async (id) => {
+export const deleteStudent = async (id) => {
     if (!id) throw Error("ID is missing!");
 
     const session = await auth();
@@ -18,7 +18,7 @@ export const deleteManager = async (id) => {
     let check = false;
 
     try {
-        const response = await fetch(`${BASE_URL}/dean/delete/${id}`, {
+        const response = await fetch(`${BASE_URL}/students/delete/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const deleteManager = async (id) => {
 
         if (!response.ok) {
             return errorObject(
-                "Some bad things happened while trying to delete the manager."
+                "Some bad things happened while trying to delete the student."
             );
         }
 
@@ -39,13 +39,13 @@ export const deleteManager = async (id) => {
 
         return {
             status: "success",
-            message: "Manager deleted successfully!",
+            message: "Student deleted successfully!",
         };
     } catch (error) {
-        return errorObject("An error occurred while deleting the manager");
+        return errorObject("An error occurred while deleting the student");
     } finally {
         if (check) {
-            revalidatePath("/dashboard/manage/manager");
+            revalidatePath("/dashboard/manage/student");
         }
     }
 };

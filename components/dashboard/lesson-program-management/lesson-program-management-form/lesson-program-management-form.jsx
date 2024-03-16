@@ -5,18 +5,18 @@ import SubmitButton from "@/components/common/submit-button/submit-button";
 import lessonProgramManagementFormData from "@/data/lesson-program-management-form.json";
 import ErrorText from "@/components/common/error-text/error-text";
 import { swalToast } from "@/utils/functions/swal/swal-toast";
-import { createLessonAction } from "@/actions/lesson/create-lesson-action";
 import { extractEducationTerms } from "@/utils/functions/extract-education-terms";
 import weekdays from "@/data/weekdays.json";
-import styles from "./admin-form.module.scss";
 import MultiSelect from "@/components/common/multi-select/multi-select";
 import { extractLessons } from "@/utils/functions/extract-lessons";
+import { createLessonProgramAction } from "@/actions/lesson-program/create-lesson-program-action";
+import styles from "./admin-form.module.scss";
 
 export default function LessonProgramManagementForm({
     educationTermsData,
     lessonsData,
 }) {
-    const [state, dispatch] = useFormState(createLessonAction, {
+    const [state, dispatch] = useFormState(createLessonProgramAction, {
         status: "",
         message: null,
         errors: {},

@@ -1,0 +1,181 @@
+@use "@/styles/variables" as *;
+
+.messageCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: $rounded-sm;
+    padding: $padding-md;
+    background-color: $clr-purple-lighter;
+    box-shadow: $shadow-md-light;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    flex: 1 1 450px;
+
+    &:hover {
+        background-color: $clr-success-lighter !important;
+
+        .detail {
+            background-color: $clr-purple-lighter;
+        }
+    }
+}
+
+.cardHeader {
+    font-size: $font-lg;
+    color: $clr-purple;
+    padding-bottom: $padding-md;
+    text-transform: lowercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.subject {
+    color: $clr-orange;
+    font-family: $font-modulus;
+    font-size: $font-lg;
+}
+
+.date {
+    color: $clr-black-lighter;
+    font-size: $font-md;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+}
+
+.nameEmail {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    background-color: $clr-purple-lighter;
+    padding: $padding-xs $padding-sm;
+    border-radius: $rounded-sm;
+    gap: $gap-sm;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.email {
+    color: $clr-purple-dark;
+}
+
+.message {
+    font-family: $font-modulus;
+    color: $clr-black;
+    font-size: $font-sm;
+}
+
+.orderNumber {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $font-4xl;
+    color: $clr-purple;
+    opacity: 0.1;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.buttonsContainer {
+    display: flex;
+    align-items: center;
+    gap: $gap-xs;
+}
+
+@media (max-width: $screen-2xl) {
+    .messageCard {
+        flex: 1 0 400px;
+    }
+
+    .backNumber {
+        font-size: $font-3xl;
+    }
+
+    .subject {
+        font-size: $font-md;
+    }
+
+    .date {
+        font-size: $font-sm;
+    }
+
+    .message {
+        font-size: $font-xs;
+    }
+
+    .nameEmail {
+        font-size: $font-sm;
+        gap: $gap-xs;
+    }
+
+    .name {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .messageCard {
+        flex: 1 0 400px;
+    }
+
+    .backNumber {
+        font-size: $font-3xl;
+    }
+
+    .subject {
+        font-size: $font-md;
+    }
+
+    .date {
+        font-size: $font-sm;
+    }
+
+    .message {
+        font-size: $font-xs;
+    }
+
+    .nameEmail {
+        font-size: $font-sm;
+        gap: $gap-xs;
+    }
+
+    .name {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-md) {
+    .messageCard {
+        flex: 1 0 300px;
+        padding: $padding-sm;
+    }
+
+    .subject {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .messageCard {
+        flex: 1 0 230px;
+        padding: $padding-xs;
+    }
+
+    .nameEmail {
+        font-size: $font-xs;
+    }
+
+    .subject {
+        max-width: 200px;
+    }
+}

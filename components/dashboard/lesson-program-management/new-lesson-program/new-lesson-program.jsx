@@ -8,9 +8,6 @@ export default async function NewLessonProgram() {
         getLessons(),
     ]);
 
-    console.log("EDUCATION TERMS: ", educationTermsData);
-    console.log("LESSONS: ", lessonsData);
-
     return (
         <LessonProgramManagementForm
             educationTermsData={educationTermsData}

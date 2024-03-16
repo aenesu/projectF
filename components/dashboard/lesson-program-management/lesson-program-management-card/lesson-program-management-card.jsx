@@ -8,7 +8,6 @@ export default function LessonProgramManagementCard({
     data,
     orderNumber,
 }) {
-    console.log(data);
     return (
         <div className={styles.cardContainer}>
             <div className={styles.header}>
