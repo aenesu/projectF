@@ -1,16 +1,19 @@
 "use client";
 
 import { useFormState } from "react-dom";
-import adminFormData from "@/data/admin-form.json";
+import studentFormData from "@/data/student-form.json";
 import ErrorText from "@/components/common/error-text/error-text";
 import genderOptions from "@/data/gender-options.json";
 import SubmitButton from "@/components/common/submit-button/submit-button";
 import { swalToast } from "@/utils/functions/swal/swal-toast";
-import { updateManagerAction } from "@/actions/manager/update-manager-action";
+import { updateStudentAction } from "@/actions/student/update-student-action";
 import styles from "./update-student-management-form.module.scss";
 
-export default function UpdateStudentManagementForm({ data }) {
-    const [state, dispatch] = useFormState(updateManagerAction, {
+export default function UpdateStudentManagementForm({
+    advisorTeacherData,
+    data,
+}) {
+    const [state, dispatch] = useFormState(updateStudentAction, {
         status: "",
         message: null,
         errors: {},
@@ -46,7 +49,7 @@ export default function UpdateStudentManagementForm({ data }) {
                         name="gender"
                         id="gender"
                         className={styles.select}
-                        defaultValue={data?.object?.gender}>
+                        defaultValue={data?.gender}>
                         {genderOptions.map((item) => (
                             <option key={item._id} value={item.value}>
                                 {item.label}
@@ -59,14 +62,34 @@ export default function UpdateStudentManagementForm({ data }) {
                         </span>
                     )}
                 </div>
+                {/* ADVISOR TEACHER */}
+                <div className={styles.inputGroup}>
+                    <label htmlFor="advisorTeacherId" className={styles.label}>
+                        Advisor Teacher
+                    </label>
+                    <select
+                        name="advisorTeacherId"
+                        id="advisorTeacherId"
+                        className={styles.select}
+                        defaultValue={data?.advisorTeacherId}>
+                        {advisorTeacherData.map((item) => (
+                            <option
+                                key={item.advisorTeacherId}
+                                value={item.advisorTeacherId}>
+                                {item.teacherName} {item.teacherSurname}
+                            </option>
+                        ))}
+                    </select>
+                    {state?.errors && state?.errors?.advisorTeacherId && (
+                        <span className={styles.error}>
+                            {state?.errors?.advisorTeacherId}
+                        </span>
+                    )}
+                </div>
                 {/* FORM DATA */}
                 {/* Send user id to the server action to update user with that id */}
-                <input
-                    type="hidden"
-                    name="userId"
-                    value={data?.object?.userId}
-                />
-                {adminFormData.map((item) => (
+                <input type="hidden" name="id" value={data?.id} />
+                {studentFormData.map((item) => (
                     <div key={item._id} className={styles.inputGroup}>
                         <label htmlFor={item.name} className={styles.label}>
                             {item.label}
@@ -74,7 +97,7 @@ export default function UpdateStudentManagementForm({ data }) {
                         <input
                             autoComplete={item.autoComplete}
                             className={styles.input}
-                            defaultValue={data?.object?.[item.name] || ""}
+                            defaultValue={data?.[item.name] || ""}
                             id={item.name}
                             name={item.name}
                             placeholder={item.placeholder}
