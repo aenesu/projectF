@@ -9,7 +9,7 @@ import { transformErrors } from "@/utils/functions/transform-errors";
 import { trimFormDataFields } from "@/utils/functions/trim-form-data-fields";
 import { updateTeacher } from "@/actions/teacher/update-teacher";
 
-export const updateStudentAction = async (prevState, formData) => {
+export const updateTeacherAction = async (prevState, formData) => {
     const trimmedData = trimFormDataFields(formData);
     let check = false;
 

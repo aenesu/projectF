@@ -9,7 +9,7 @@ import { newTeacherSchema } from "@/utils/validations/new-teacher-schema";
 import { transformErrors } from "@/utils/functions/transform-errors";
 import { trimFormDataFields } from "@/utils/functions/trim-form-data-fields";
 
-export const createStudentAction = async (prevState, formData) => {
+export const createTeacherAction = async (prevState, formData) => {
     const trimmedData = trimFormDataFields(formData);
     let check = false;
 

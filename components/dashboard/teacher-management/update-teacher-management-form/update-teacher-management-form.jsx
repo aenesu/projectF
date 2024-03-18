@@ -1,19 +1,21 @@
 "use client";
 
 import { useFormState } from "react-dom";
-import studentFormData from "@/data/student-form.json";
-import ErrorText from "@/components/common/error-text/error-text";
 import genderOptions from "@/data/gender-options.json";
+import ErrorText from "@/components/common/error-text/error-text";
+import MultiSelect from "@/components/common/multi-select/multi-select";
+import teacherFormData from "@/data/teacher-form.json";
 import SubmitButton from "@/components/common/submit-button/submit-button";
 import { swalToast } from "@/utils/functions/swal/swal-toast";
-import { updateStudentAction } from "@/actions/student/update-student-action";
-import styles from "./update-student-management-form.module.scss";
+import { updateTeacherAction } from "@/actions/teacher/update-teacher-action";
+import styles from "./update-teacher-management-form.module.scss";
+import { extractSelectedLessonPrograms } from "@/utils/functions/extract-selected-lesson-programs";
 
-export default function UpdateStudentManagementForm({
-    advisorTeacherData,
+export default function UpdateTeacherManagementForm({
     data,
+    lessonProgramsData,
 }) {
-    const [state, dispatch] = useFormState(updateStudentAction, {
+    const [state, dispatch] = useFormState(updateTeacherAction, {
         status: "",
         message: null,
         errors: {},
@@ -22,24 +24,15 @@ export default function UpdateStudentManagementForm({
     if (state?.status === "error") {
         swalToast(state?.message, "error", 3000);
     }
-
     return (
         <form action={dispatch} className={styles.formContainer}>
-            {/* IF THERE WAS A PROBLEM FETCHING USER DATA */}
-            {data?.status === "error" && (
-                <div className={styles.errorContainer}>
-                    <ErrorText
-                        text={data?.errors?.commonError || data?.message}
-                    />
-                </div>
-            )}
-            {/* IF THERE WAS A PROBLEM WITH THE FORM */}
             {state?.errors && state?.errors?.commonError && (
                 <div className={styles.errorContainer}>
                     <ErrorText text={state?.errors?.commonError} />
                 </div>
             )}
             <div className={styles.inputsContainer}>
+                <input type="hidden" name="id" value={data?.object?.id} />
                 {/* GENDER */}
                 <div className={styles.inputGroup}>
                     <label htmlFor="gender" className={styles.label}>
@@ -49,7 +42,7 @@ export default function UpdateStudentManagementForm({
                         name="gender"
                         id="gender"
                         className={styles.select}
-                        defaultValue={data?.gender}>
+                        defaultValue={data?.object?.gender}>
                         {genderOptions.map((item) => (
                             <option key={item._id} value={item.value}>
                                 {item.label}
@@ -62,34 +55,26 @@ export default function UpdateStudentManagementForm({
                         </span>
                     )}
                 </div>
-                {/* ADVISOR TEACHER */}
+                {/* LESSON PROGRAM MULTIPLE SELECTION */}
                 <div className={styles.inputGroup}>
-                    <label htmlFor="advisorTeacherId" className={styles.label}>
-                        Advisor Teacher
+                    <label htmlFor="lessonsIdList" className={styles.label}>
+                        Lesson Programs
                     </label>
-                    <select
-                        name="advisorTeacherId"
-                        id="advisorTeacherId"
-                        className={styles.select}
-                        defaultValue={data?.advisorTeacherId}>
-                        {advisorTeacherData.map((item) => (
-                            <option
-                                key={item.advisorTeacherId}
-                                value={item.advisorTeacherId}>
-                                {item.teacherName} {item.teacherSurname}
-                            </option>
-                        ))}
-                    </select>
-                    {state?.errors && state?.errors?.advisorTeacherId && (
+                    <MultiSelect
+                        data={lessonProgramsData}
+                        defaultValues={extractSelectedLessonPrograms(
+                            data?.object?.lessonsProgramList || []
+                        )}
+                        name="lessonsIdList"
+                        title="Lesson Program"
+                    />
+                    {state?.errors && state?.errors?.lessonsIdList && (
                         <span className={styles.error}>
-                            {state?.errors?.advisorTeacherId}
+                            {state?.errors?.lessonsIdList}
                         </span>
                     )}
                 </div>
-                {/* FORM DATA */}
-                {/* Send user id to the server action to update user with that id */}
-                <input type="hidden" name="id" value={data?.id} />
-                {studentFormData.map((item) => (
+                {teacherFormData.map((item) => (
                     <div key={item._id} className={styles.inputGroup}>
                         <label htmlFor={item.name} className={styles.label}>
                             {item.label}
@@ -97,7 +82,9 @@ export default function UpdateStudentManagementForm({
                         <input
                             autoComplete={item.autoComplete}
                             className={styles.input}
-                            defaultValue={data?.[item.name] || ""}
+                            {...(item.type === "checkbox"
+                                ? { defaultChecked: data?.object?.isAdvisor }
+                                : { defaultValue: data?.object?.[item.name] })}
                             id={item.name}
                             name={item.name}
                             placeholder={item.placeholder}
