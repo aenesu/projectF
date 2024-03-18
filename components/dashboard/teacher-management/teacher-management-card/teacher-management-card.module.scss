@@ -1,0 +1,155 @@
+@use "@/styles/variables" as *;
+
+.cardContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+    border-radius: $rounded-sm;
+    background-color: $clr-smoke;
+    box-shadow: 0 4px 6px $clr-black-lighter-opacity;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    flex: 1 1 450px;
+
+    &:hover {
+        background-color: $clr-success-lighter !important;
+
+        .detail {
+            background-color: $clr-purple-lighter;
+        }
+    }
+}
+
+.cardHeader {
+    font-size: $font-lg;
+    text-transform: lowercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $clr-purple;
+    color: $clr-white;
+    padding: $padding-sm $padding-md;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+    padding: $padding-md;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    background-color: $clr-purple-lighter;
+    padding: $padding-xs $padding-sm;
+    border-radius: $rounded-sm;
+    transition: background-color 0.5s ease-in-out;
+
+    &:nth-child(odd) {
+        background-color: $clr-purple-light;
+
+        &:hover {
+            background-color: $clr-purple-lighter;
+        }
+    }
+
+    &:nth-child(6) {
+        .detailValue {
+            color: $clr-danger;
+            font-style: italic;
+        }
+    }
+}
+
+.detailLabel {
+    font-size: $font-md;
+    font-weight: bold;
+}
+
+.detailValue {
+    font-size: $font-md;
+}
+
+.danger {
+    background-color: $clr-danger-lighter !important;
+    color: $clr-danger;
+}
+
+.success {
+    background-color: $clr-success-lighter !important;
+    color: $clr-success;
+}
+
+.builtIn {
+    background-color: $clr-danger-light;
+}
+
+.orderNumber {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $font-4xl;
+    color: $clr-purple;
+    opacity: 0.1;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.buttonsContainer {
+    display: flex;
+    align-items: center;
+    gap: $gap-xs;
+}
+
+@media (max-width: $screen-3xl) {
+    .cardHeader {
+        font-size: $font-md;
+    }
+
+    .detailLabel {
+        font-size: $font-sm;
+    }
+
+    .detailValue {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-2xl) {
+    .cardContainer {
+        flex: 1 1 350px;
+    }
+}
+
+@media (max-width: $screen-xl) {
+    .cardContainer {
+        flex: 1 1 300px;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .cardHeader {
+        font-size: $font-sm;
+        margin-bottom: $margin-sm;
+    }
+
+    .cardBody {
+        gap: $gap-xs;
+    }
+
+    .detail {
+        padding: $padding-xs;
+    }
+
+    .detailLabel {
+        font-size: $font-xs;
+    }
+
+    .detailValue {
+        font-size: $font-xs;
+    }
+}
