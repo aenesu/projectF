@@ -101,6 +101,6 @@ export default function UpdateTeacherManagementForm({
             <div className={styles.submitContainer}>
                 <SubmitButton title="Update" loadingText="Updating" />
             </div>
-        </form>
+        </form> 
     );
 }
