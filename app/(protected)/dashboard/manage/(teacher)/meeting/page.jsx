@@ -1,29 +1,30 @@
 import { Suspense } from "react";
-import { FaChalkboardTeacher } from "react-icons/fa";
 import AdminListSkeleton from "@/components/dashboard/admin/admin-list/admin-list-skeleton";
-import PlusLink from "@/components/common/plus-link/plus-link";
+import { FaPeopleLine } from "react-icons/fa6";
+import MeetingManagementList from "@/components/dashboard/meeting-management/meeting-management-list/meeting-management-list";
 import PageTitle from "@/components/common/page-title/page-title";
-import TeacherManagementList from "@/components/dashboard/teacher-management/teacher-management-list/teacher-management-list";
+import PlusLink from "@/components/common/plus-link/plus-link";
 import styles from "./admin-management-page.module.scss";
 
-export default function TeacherManagementPage({ searchParams }) {
+export default function MeetingManagementPage({ searchParams }) {
     let { page, size, sort, type } = searchParams;
+
     page = page || 1;
     size = size || 6;
-    sort = sort || "name";
-    type = type || "desc";
+    sort = sort || "date";
+    type = type || "asc";
 
     return (
         <>
             <div className={styles.addContainer}>
-                <PlusLink href="/dashboard/manage/teacher/new" title="Teacher">
-                    <FaChalkboardTeacher />
+                <PlusLink href="/dashboard/manage/meeting/new" title="Meeting">
+                    <FaPeopleLine />
                 </PlusLink>
             </div>
-            <PageTitle title="Teachers" />
+            <PageTitle title="Meetings" />
             <div className={styles.container}>
                 <Suspense fallback={<AdminListSkeleton />}>
-                    <TeacherManagementList
+                    <MeetingManagementList
                         page={page}
                         size={size}
                         sort={sort}

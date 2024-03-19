@@ -1,17 +1,16 @@
 "use client";
 
+import SubmitButton from "@/components/common/submit-button/submit-button";
 import { useFormState } from "react-dom";
-import { createTeacherAction } from "@/actions/teacher/create-teacher-action";
+import studentFormData from "@/data/student-form.json";
 import genderOptions from "@/data/gender-options.json";
 import ErrorText from "@/components/common/error-text/error-text";
-import MultiSelect from "@/components/common/multi-select/multi-select";
-import teacherFormData from "@/data/teacher-form.json";
-import SubmitButton from "@/components/common/submit-button/submit-button";
 import { swalToast } from "@/utils/functions/swal/swal-toast";
-import styles from "./teacher-management-form.module.scss";
+import { createStudentAction } from "@/actions/student/create-student-action";
+import styles from "./meeting-management-form.module.scss";
 
-export default function TeacherManagementForm({ data }) {
-    const [state, dispatch] = useFormState(createTeacherAction, {
+export default function MeetingManagementForm({ data }) {
+    const [state, dispatch] = useFormState(createStudentAction, {
         status: "",
         message: null,
         errors: {},
@@ -47,23 +46,32 @@ export default function TeacherManagementForm({ data }) {
                         </span>
                     )}
                 </div>
-                {/* LESSON PROGRAM MULTIPLE SELECTION */}
+                {/* ADVISOR TEACHER */}
                 <div className={styles.inputGroup}>
-                    <label htmlFor="lessonsIdList" className={styles.label}>
-                        Lesson Programs
+                    <label htmlFor="advisorTeacherId" className={styles.label}>
+                        Advisor Teacher
                     </label>
-                    <MultiSelect
-                        data={data}
-                        name="lessonsIdList"
-                        title="Lesson Program"
-                    />
-                    {state?.errors && state?.errors?.lessonsIdList && (
+                    <select
+                        className={styles.select}
+                        id="advisorTeacherId"
+                        name="advisorTeacherId">
+                        {data &&
+                            data?.status !== "error" &&
+                            data.map((item) => (
+                                <option
+                                    key={item.advisorTeacherId}
+                                    value={item.advisorTeacherId}>
+                                    {item.teacherName} {item.teacherSurname}
+                                </option>
+                            ))}
+                    </select>
+                    {state?.errors && state?.errors?.advisorTeacherId && (
                         <span className={styles.error}>
-                            {state?.errors?.lessonsIdList}
+                            {state?.errors?.advisorTeacherId}
                         </span>
                     )}
                 </div>
-                {teacherFormData.map((item) => (
+                {studentFormData.map((item) => (
                     <div key={item._id} className={styles.inputGroup}>
                         <label htmlFor={item.name} className={styles.label}>
                             {item.label}

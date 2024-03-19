@@ -1,20 +1,22 @@
-import { getAdvisorTeachers } from "@/actions/advisor-teacher/get-advisor-teachers";
-import { getStudentById } from "@/actions/student/get-student-by-id";
+import { extractLessonPrograms } from "@/utils/functions/extract-lesson-programs";
+import { getLessonPrograms } from "@/actions/lesson-program/get-lesson-programs";
+import { getTeacherById } from "@/actions/teacher/get-teacher-by-id";
 import PageTitle from "@/components/common/page-title/page-title";
-import UpdateStudentManagementForm from "@/components/dashboard/student-management/update-student-management-form/update-student-management-form";
+import UpdateTeacherManagementForm from "@/components/dashboard/teacher-management/update-teacher-management-form/update-teacher-management-form";
 
-export default async function StudentEditPage({ params }) {
+export default async function TeacherEditPage({ params }) {
     const { slug } = params;
 
-    const data = await getStudentById(slug);
-    const advisorTeacherData = await getAdvisorTeachers();
+    const data = await getTeacherById(slug);
+    const rawData = await getLessonPrograms();
+    const lessonProgramsData = extractLessonPrograms(rawData);
 
     return (
         <>
-            <PageTitle title={`Update Student - ${slug}`} />
-            <UpdateStudentManagementForm
+            <PageTitle title={`Update Teacher - ${slug}`} />
+            <UpdateTeacherManagementForm
                 data={data}
-                advisorTeacherData={advisorTeacherData}
+                lessonProgramsData={lessonProgramsData}
                 slug={slug}
             />
         </>
