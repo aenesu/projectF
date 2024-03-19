@@ -1,0 +1,34 @@
+[
+    {
+        "_id": "1",
+        "name": "absentee",
+        "type": "number",
+        "label": "Absentee",
+        "placeholder": "Enter how many days the student was absent...",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "2",
+        "name": "midtermExam",
+        "type": "number",
+        "label": "Midterm Exam",
+        "placeholder": "Enter the student's midterm exam score here...",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "3",
+        "name": "finalExam",
+        "type": "number",
+        "label": "Final Exam",
+        "placeholder": "Enter the student's final exam score here...",
+        "autoComplete": "off"
+    },
+    {
+        "_id": "4",
+        "name": "infoNote",
+        "type": "textarea",
+        "label": "Notes",
+        "placeholder": "Enter your notes about the student here...",
+        "autoComplete": "off"
+    }
+]

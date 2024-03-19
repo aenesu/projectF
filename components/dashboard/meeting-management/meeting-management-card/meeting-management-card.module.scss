@@ -2,18 +2,18 @@
 
 .cardContainer {
     position: relative;
+    background-color: $clr-white;
+    border: 1px solid $clr-orange-light;
+    border-radius: $rounded-md;
+    box-shadow: $shadow-md;
     display: flex;
     flex-direction: column;
-    gap: $gap-xs;
-    border-radius: $rounded-sm;
-    background-color: $clr-smoke;
-    box-shadow: 0 4px 6px $clr-black-lighter-opacity;
+    transition: background-color 0.3s ease;
+    flex: 1 0 600px;
     overflow: hidden;
-    transition: all 0.5s ease-in-out;
-    flex: 1 1 450px;
 
     &:hover {
-        background-color: $clr-success-lighter !important;
+        background-color: $clr-orange-lighter !important;
 
         .detail {
             background-color: $clr-purple-lighter;
@@ -27,7 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $clr-purple;
+    background-color: $clr-orange;
     color: $clr-white;
     padding: $padding-sm $padding-md;
 }
@@ -63,15 +63,6 @@
     }
 }
 
-.detailLabel {
-    font-size: $font-md;
-    font-weight: bold;
-}
-
-.detailValue {
-    font-size: $font-md;
-}
-
 .builtIn {
     background-color: $clr-danger-light;
 }
@@ -95,51 +86,139 @@
     gap: $gap-xs;
 }
 
-@media (max-width: $screen-3xl) {
-    .cardHeader {
-        font-size: $font-md;
-    }
+.students {
+    background-color: $clr-smoke;
+    border: 1px solid $clr-orange-light;
+    border-radius: $rounded-sm;
+    padding: $padding-sm;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
 
-    .detailLabel {
-        font-size: $font-sm;
-    }
-
-    .detailValue {
-        font-size: $font-sm;
+    h3 {
+        color: $clr-purple;
     }
 }
 
-@media (max-width: $screen-2xl) {
+.studentList {
+    display: flex;
+    p {
+        color: $clr-success-dark;
+        font-size: $font-sm;
+
+        &::before {
+            content: "•";
+            color: $clr-danger;
+            margin: 0 $margin-xs;
+        }
+
+        &:first-child::before {
+            content: "";
+            margin: 0;
+        }
+    }
+}
+
+.dateTime {
+    font-family: $font-modulus;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $gap-md;
+    color: $clr-orange-dark;
+    font-size: $font-lg;
+}
+
+@media (max-width: $screen-3xl) {
     .cardContainer {
-        flex: 1 1 350px;
+        flex: 1 0 400px;
+    }
+
+    .cardContent {
+        padding: $padding-sm;
+    }
+
+    .students {
+        padding: $padding-xs;
+    }
+
+    .studentList {
+        p {
+            font-size: $font-xs;
+        }
+    }
+
+    .dateTime {
+        font-size: $font-md;
     }
 }
 
 @media (max-width: $screen-xl) {
     .cardContainer {
-        flex: 1 1 300px;
+        flex: 1 0 300px;
+    }
+
+    .students {
+        gap: $gap-xs;
+
+        h3 {
+            font-size: $font-sm !important;
+        }
+    }
+
+    .studentList {
+        p {
+            font-size: $font-2xs;
+        }
+    }
+
+    .cardHeader {
+        h2 {
+            font-size: $font-md !important;
+        }
+    }
+
+    .dateTime {
+        font-size: $font-sm;
+    }
+
+    .description {
+        font-size: $font-xs;
     }
 }
 
 @media (max-width: $screen-lg) {
+    .students {
+        gap: $gap-2xs;
+    }
+
     .cardHeader {
-        font-size: $font-sm;
-        margin-bottom: $margin-sm;
+        h2 {
+            font-size: $font-sm !important;
+        }
     }
 
-    .cardBody {
-        gap: $gap-xs;
-    }
-
-    .detail {
-        padding: $padding-xs;
-    }
-
-    .detailLabel {
+    .dateTime {
         font-size: $font-xs;
     }
+}
 
-    .detailValue {
+@media (max-width: $screen-md) {
+    .cardContainer {
+        flex: 1 0 230px;
+    }
+
+    .students {
+        gap: $gap-2xs;
+    }
+
+    .cardHeader {
+        h2 {
+            font-size: $font-xs !important;
+        }
+    }
+
+    .dateTime {
         font-size: $font-xs;
     }
 }

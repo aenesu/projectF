@@ -59,7 +59,7 @@ export const updateTeacherAction = async (prevState, formData) => {
         check = true;
         return {
             status: "success",
-            message: "Teacher created successfully!",
+            message: "Teacher updated successfully!",
             data: data,
         };
     } catch (error) {

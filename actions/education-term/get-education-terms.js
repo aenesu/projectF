@@ -1,10 +1,10 @@
 "use server";
-import { BASE_URL } from "@/actions/base-url";
 import { auth } from "@/auth";
+import { BASE_URL } from "@/actions/base-url";
 import { errorObject } from "@/utils/functions/error-object";
 
 /**
- * Get all education terms as a user with "ADMIN" | "ASSISTANTMANAGER" role
+ * Get all education terms as a user with "ADMIN" | "ASSISTANTMANAGER" | "TEACHER" role
  *
  * @returns
  */
