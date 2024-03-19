@@ -14,19 +14,19 @@ export default function MeetingManagementCard({ data, orderNumber }) {
                 <h2>Meeting with {data?.teacherName}</h2>
                 <div className={styles.buttonsContainer}>
                     <EditButton
-                        title={`Edit ${data?.name} ${data?.surname}`}
-                        href={`/dashboard/manage/student/edit/${data?.id}`}
+                        title={`Edit Meeting - ${data?.id}`}
+                        href={`/dashboard/manage/meeting/edit/${data?.id}`}
                     />
                     <form action={deleteMeeting}>
                         <DeleteButton
                             cb={deleteMeeting}
                             id={data?.id}
-                            title={`Delete ${data?.name} ${data?.surname}`}
+                            title={`Delete Meeting - ${data?.id}`}
                             simple
                             builtIn={data?.built_in}
-                            errorText={`There was a problem deleting ${data?.name} ${data?.surname}`}
-                            questionText={`Are you sure you want to delete ${data?.name} ${data?.surname}?`}
-                            successText={`${data?.name} ${data?.surname} has been deleted successfully!`}
+                            errorText={`There was a problem deleting Meeting - ${data?.id}`}
+                            questionText={`Are you sure you want to delete Meeting - ${data?.id}?`}
+                            successText={`Meeting - ${data?.id} has been deleted successfully!`}
                         />
                     </form>
                 </div>

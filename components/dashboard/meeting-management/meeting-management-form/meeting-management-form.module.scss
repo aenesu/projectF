@@ -1,5 +1,4 @@
 @use "@/styles/variables" as *;
-
 .formContainer {
     display: flex;
     flex-direction: column;
@@ -48,6 +47,11 @@
     &::placeholder {
         color: $clr-purple-light;
     }
+}
+
+.textarea {
+    resize: none;
+    min-height: 150px;
 }
 
 .select {
@@ -101,7 +105,7 @@
     .select {
         font-size: $font-xs;
     }
-
+    
     .error {
         font-size: $font-2xs;
     }
