@@ -1,17 +1,17 @@
 "use client";
 
 import { useFormState } from "react-dom";
-import { createMeetingAction } from "@/actions/meeting/create-meeting-action";
 import ErrorText from "@/components/common/error-text/error-text";
 import { extractStudentInformation } from "@/utils/functions/extract-student-information";
 import meetingFormData from "@/data/meeting-management-form.json";
 import MultiSelect from "@/components/common/multi-select/multi-select";
 import SubmitButton from "@/components/common/submit-button/submit-button";
 import { swalToast } from "@/utils/functions/swal/swal-toast";
-import styles from "./meeting-management-form.module.scss";
+import { updateMeetingAction } from "@/actions/meeting/update-meeting-action";
+import styles from "./update-meeting-management-form.module.scss";
 
-export default function MeetingManagementForm({ studentsData }) {
-    const [state, dispatch] = useFormState(createMeetingAction, {
+export default function UpdateMeetingManagementForm({ data, studentsData }) {
+    const [state, dispatch] = useFormState(updateMeetingAction, {
         status: "",
         message: null,
         errors: {},
@@ -23,6 +23,11 @@ export default function MeetingManagementForm({ studentsData }) {
 
     return (
         <form action={dispatch} className={styles.formContainer}>
+            {data?.status === "error" && (
+                <div className={styles.errorContainer}>
+                    <ErrorText text={data?.message} />
+                </div>
+            )}
             {studentsData?.status === "error" && (
                 <div className={styles.errorContainer}>
                     <ErrorText text={studentsData?.message} />
@@ -34,6 +39,7 @@ export default function MeetingManagementForm({ studentsData }) {
                 </div>
             )}
             <div className={styles.inputsContainer}>
+                <input type="hidden" name="id" value={data?.object?.id} />
                 {/* STUDENTS MULTI SELECTION */}
                 <div className={styles.inputGroup}>
                     <label htmlFor="studentIds" className={styles.label}>
@@ -43,6 +49,9 @@ export default function MeetingManagementForm({ studentsData }) {
                         data={extractStudentInformation(studentsData)}
                         name="studentIds"
                         title="Students"
+                        defaultValues={extractStudentInformation(
+                            data?.object?.students
+                        )}
                     />
                     {state?.errors && state?.errors?.studentIds && (
                         <span className={styles.error}>
@@ -58,6 +67,7 @@ export default function MeetingManagementForm({ studentsData }) {
                         {item.type === "textarea" ? (
                             <textarea
                                 className={`${styles.input} ${styles.textarea}`}
+                                defaultValue={data?.object[item.name]}
                                 id={item.name}
                                 name={item.name}
                                 placeholder={item.placeholder}></textarea>
@@ -65,6 +75,7 @@ export default function MeetingManagementForm({ studentsData }) {
                             <input
                                 autoComplete={item.autoComplete}
                                 className={styles.input}
+                                defaultValue={data?.object[item.name]}
                                 id={item.name}
                                 name={item.name}
                                 placeholder={item.placeholder}
@@ -80,7 +91,7 @@ export default function MeetingManagementForm({ studentsData }) {
                 ))}
             </div>
             <div className={styles.submitContainer}>
-                <SubmitButton title="Create" loadingText="Creating" />
+                <SubmitButton title="Update" loadingText="Updating" />
             </div>
         </form>
     );

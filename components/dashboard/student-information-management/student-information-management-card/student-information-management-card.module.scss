@@ -1,0 +1,189 @@
+@use "@/styles/variables" as *;
+
+.cardContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: $clr-smoke;
+    box-shadow: $shadow-md-light;
+    border-radius: $rounded-sm;
+    padding: $padding-md;
+    transition: background-color 0.5s ease-in-out;
+    overflow: hidden;
+    flex: 1 1 600px;
+
+    &:hover {
+        background-color: $clr-success-lighter !important;
+    }
+}
+
+.bgDanger {
+    background-color: $clr-danger-lighter;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $font-lg;
+    color: $clr-purple;
+    margin-bottom: $margin-md;
+    text-transform: lowercase;
+    font-family: $font-modulus;
+    font-weight: bold;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+    list-style: none;
+}
+
+.cardItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $gap-xs;
+    font-size: $font-md;
+    background-color: $clr-white;
+    padding: $padding-xs $padding-sm;
+    border-radius: $rounded-sm;
+
+    span {
+        &:first-child {
+            font-weight: bold;
+        }
+    }
+}
+
+.builtIn {
+    background-color: $clr-danger-light;
+}
+
+.orderNumber {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $font-4xl;
+    color: $clr-purple;
+    opacity: 0.1;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.buttonsContainer {
+    display: flex;
+    align-items: center;
+    gap: $gap-xs;
+}
+
+.students {
+    background-color: $clr-smoke;
+    border: 1px solid $clr-orange-light;
+    border-radius: $rounded-sm;
+    padding: $padding-sm;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+
+    h3 {
+        color: $clr-purple;
+    }
+}
+
+.email {
+    span {
+        &:last-child {
+            font-style: italic;
+            color: $clr-orange;
+        }
+    }
+}
+
+.lessonName {
+    color: $clr-purple;
+
+    span {
+        &:last-child {
+            font-weight: bold;
+        }
+    }
+}
+
+.danger {
+    background-color: $clr-danger-lighter;
+    color: $clr-danger;
+}
+
+.success {
+    background-color: $clr-success-lighter;
+    color: $clr-success;
+}
+
+@media (max-width: $screen-2xl) {
+    .cardContainer {
+        flex: 1 1 350px;
+    }
+}
+
+@media (max-width: $screen-xl) {
+    .cardContainer {
+        flex: 1 1 300px;
+    }
+    .cardItem {
+        font-size: $font-sm;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .cardContainer {
+        padding: $padding-sm;
+    }
+    .cardHeader {
+        font-size: $font-md;
+        margin-bottom: $margin-sm;
+    }
+    .cardItem {
+        font-size: $font-xs;
+    }
+
+    .content {
+        padding: $padding-sm;
+    }
+
+    .email {
+        span {
+            &:last-child {
+                font-size: $font-sm;
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-md) {
+    .cardItem {
+        font-size: $font-xs;
+        flex-wrap: wrap;
+    }
+
+    .content {
+        padding: $padding-sm;
+    }
+
+    .email {
+        span {
+            &:last-child {
+                font-size: $font-xs;
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .cardContainer {
+        flex: 1 1 100% !important;
+    }
+}

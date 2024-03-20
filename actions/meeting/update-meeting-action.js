@@ -22,7 +22,6 @@ export const updateMeetingAction = async (prevState, formData) => {
     // transform the form data to a plain javascript object
     const trimmedData = trimFormDataFields(formData);
     let check = false;
-    console.log(trimmedData);
 
     const { id } = trimmedData;
 
@@ -57,7 +56,6 @@ export const updateMeetingAction = async (prevState, formData) => {
         const response = await updateMeeting(payload, id);
 
         const data = await response.json();
-        console.log(data);
 
         if (!response.ok) {
             return errorObject("Something went wrong!", {

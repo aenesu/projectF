@@ -34,7 +34,6 @@ export const getMeetingsByPage = async (
         );
 
         const data = await response.json();
-        console.log(data);
         if (!response.ok) {
             return errorObject(
                 "An error occurred while fetching the meetings data"

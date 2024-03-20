@@ -1,14 +1,15 @@
 import { Suspense } from "react";
-import NewMeeting from "@/components/dashboard/meeting-management/new-meeting/new-meeting";
 import LessonProgramManagementFormSkeleton from "@/components/dashboard/lesson-program-management/lesson-program-management-form/lesson-program-management-form-skeleton";
 import PageTitle from "@/components/common/page-title/page-title";
+import UpdateStudentInformation from "@/components/dashboard/student-information-management/update-student-information/update-student-information";
 
-export default function NewMeetingPage() {
+export default function UpdateStudentInformationPage({ params }) {
+    const { slug } = params;
     return (
         <>
-            <PageTitle title="Create New Meeting" />
+            <PageTitle title={`Update Student Information - ${slug}`} />
             <Suspense fallback={<LessonProgramManagementFormSkeleton />}>
-                <NewMeeting />
+                <UpdateStudentInformation slug={slug} />
             </Suspense>
         </>
     );
