@@ -1,0 +1,91 @@
+@use "@/styles/variables" as *;
+
+.cardContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: $clr-smoke;
+    box-shadow: $shadow-md-light;
+    border-radius: $rounded-sm;
+    transition: background-color 0.5s ease-in-out;
+    overflow: hidden;
+
+    &:hover {
+        background-color: $clr-success-lighter !important;
+    }
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $font-lg;
+    color: $clr-purple;
+    text-transform: lowercase;
+    font-family: $font-modulus;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: $padding-md;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+}
+
+.cardItem {
+    color: $clr-purple;
+    font-size: $font-sm;
+    font-weight: $text-normal;
+    background-color: $clr-purple-lighter;
+    border-radius: $rounded-xs;
+    padding: $padding-xs $padding-md;
+}
+
+.date,
+.time {
+    text-align: right;
+    font-style: italic;
+}
+
+.ongoing {
+    background-color: $clr-success-light !important;
+    color: $clr-success;
+}
+
+.past {
+    background-color: $clr-danger-light !important;
+    color: $clr-danger;
+}
+
+.upcoming {
+    background-color: $clr-warning-light !important;
+    color: $clr-warning;
+}
+
+.orderNumber {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $font-4xl;
+    color: $clr-purple;
+    opacity: 0.1;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+@media (max-width: $screen-3xl) {
+    .cardHeader {
+        font-size: $font-md;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .cardHeader {
+        font-size: $font-sm;
+        margin-bottom: $margin-sm;
+    }
+}

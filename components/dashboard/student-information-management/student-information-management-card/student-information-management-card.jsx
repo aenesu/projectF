@@ -7,6 +7,7 @@ import { isPassingNumberGrade } from "@/utils/functions/is-passing-number-grade"
 import styles from "./student-information-management-card.module.scss";
 
 export default function StudentInformationManagementCard({
+    authorized,
     data,
     orderNumber,
 }) {
@@ -80,24 +81,26 @@ export default function StudentInformationManagementCard({
             } ${isPassingNumberGrade(data?.average) ? "" : styles.bgDanger}`}>
             <h3 className={styles.cardHeader}>
                 Meeting with {data?.teacherName}
-                <div className={styles.buttonsContainer}>
-                    <EditButton
-                        title={`Edit ${data?.studentResponse?.name} ${data?.studentResponse?.surname}`}
-                        href={`/dashboard/manage/student-information/edit/${data?.id}`}
-                    />
-                    <form action={deleteStudentInformation}>
-                        <DeleteButton
-                            cb={deleteStudentInformation}
-                            id={data?.id}
-                            title={`Delete ${data?.studentResponse?.name} ${data?.studentResponse?.surname}`}
-                            simple
-                            builtIn={data?.built_in}
-                            errorText={`There was a problem deleting ${data?.studentResponse?.name} ${data?.studentResponse?.surname}`}
-                            questionText={`Are you sure you want to delete ${data?.studentResponse?.name} ${data?.studentResponse?.surname}?`}
-                            successText={`${data?.studentResponse?.name} ${data?.studentResponse?.surname} has been deleted successfully!`}
+                {authorized && (
+                    <div className={styles.buttonsContainer}>
+                        <EditButton
+                            title={`Edit ${data?.studentResponse?.name} ${data?.studentResponse?.surname}`}
+                            href={`/dashboard/manage/student-information/edit/${data?.id}`}
                         />
-                    </form>
-                </div>
+                        <form action={deleteStudentInformation}>
+                            <DeleteButton
+                                cb={deleteStudentInformation}
+                                id={data?.id}
+                                title={`Delete ${data?.studentResponse?.name} ${data?.studentResponse?.surname}`}
+                                simple
+                                builtIn={data?.built_in}
+                                errorText={`There was a problem deleting ${data?.studentResponse?.name} ${data?.studentResponse?.surname}`}
+                                questionText={`Are you sure you want to delete ${data?.studentResponse?.name} ${data?.studentResponse?.surname}?`}
+                                successText={`${data?.studentResponse?.name} ${data?.studentResponse?.surname} has been deleted successfully!`}
+                            />
+                        </form>
+                    </div>
+                )}
             </h3>
             <ul className={styles.cardBody}>
                 {dataToMap.map((item, index) => (

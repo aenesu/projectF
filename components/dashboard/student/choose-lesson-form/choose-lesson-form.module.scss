@@ -1,0 +1,43 @@
+@use "@/styles/variables" as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: $clr-white;
+    border-radius: $rounded-xl;
+    padding: $padding-md;
+    height: 100%;
+    gap: $gap-md;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap-sm;
+}
+
+.submitContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    width: 200px;
+    align-self: flex-end;
+}
+
+.inputGroup {
+    width: 100%;
+}
+
+.input {
+    display: none;
+
+    &:checked + .label {
+        > div {
+            background-color: $clr-warning-light !important;
+        }
+    }
+}
+
+.label {
+    cursor: pointer;
+}

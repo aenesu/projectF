@@ -98,6 +98,7 @@ export const STUDENT = [
     /^\/dashboard\/grades\/?$/,
     /^\/dashboard\/lessons\/?$/,
     /^\/dashboard\/meetings\/?$/,
+    /^\/dashboard\/choose-lesson\/?$/,
 ];
 
 /**
